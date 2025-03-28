@@ -182,8 +182,9 @@ const PerfilContainer = styled.div`
 `;
 
 const ImgPerfilGrande = styled.img`
-    width: 130px;
-    height: 130px;
+    margin-top: 0px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     border: 3px solid #6c4539;
 `;
@@ -193,6 +194,26 @@ const NomePerfil = styled.h1`
     font-size: 50px;
     font-weight: bold;
     margin-top: 20px;
+`;
+
+// icones (não subir)
+const IconeConteiner = styled.div`
+    margin-top: 50px;
+    overflow: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    text-align: center;
+
+`;
+
+const IconeImg = styled.img`
+    margin-bottom: 10px;
+    width: 120px;
+    height: 120px;
+    margin-left: 110px;
+    border: None
+
+    
 `;
 
 export {
@@ -213,5 +234,7 @@ export {
     Direitos,
     PerfilContainer,
     ImgPerfilGrande,
-    NomePerfil
+    NomePerfil,
+    IconeConteiner,
+    IconeImg
   };

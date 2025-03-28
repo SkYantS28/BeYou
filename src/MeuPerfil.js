@@ -18,7 +18,9 @@ import {
     Direitos,
     PerfilContainer,
     ImgPerfilGrande,
-    NomePerfil
+    NomePerfil,
+    IconeConteiner,
+    IconeImg
 } from "./components/meuperfilestrutura";
 
 
@@ -76,6 +78,13 @@ function MeuPerfil() {
                 <ImgPerfilGrande src="/img/perfil.eu.jpg" alt="Foto de perfil" />
                 <NomePerfil>Sky Crizosti</NomePerfil>
             </PerfilContainer>
+
+            <IconeConteiner>
+            <IconeImg src="/img/favoritos.png" alt="" />
+            <IconeImg src="/img/configuracao.png" alt="" />
+            <IconeImg src="/img/dados_perfil.png" alt="" />
+            <IconeImg src="/img/notificacao.png" alt="" />
+            </IconeConteiner>
 
             <main>
             
