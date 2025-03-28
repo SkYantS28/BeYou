@@ -66,7 +66,7 @@ function MeuPerfil() {
                 &times;
                 </MenuIconLink>
                 <MenuIconLink href="#imagens_passar">Inicio</MenuIconLink>
-                <MenuIconLink onClick={() => navigate("/MeuPerfil")}>Meu MeuPerfil</MenuIconLink>
+                <MenuIconLink onClick={() => navigate("/Carrinho")}>Carrinho</MenuIconLink>
                 <MenuIconLink onClick={() => navigate("/Pesquisar")}>Pesquisar</MenuIconLink>
                 <MenuIconLink onClick={() => navigate("/Agendamentos")}>Agendamentos</MenuIconLink>
                 <MenuIconLink onClick={() => navigate("/MinhaLoja")}>Minha Loja</MenuIconLink>
