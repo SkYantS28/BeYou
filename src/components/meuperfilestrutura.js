@@ -171,6 +171,30 @@ const Direitos = styled.div`
   opacity: 50%;
 `;
 
+/* Adicionado */
+const PerfilContainer = styled.div`
+    text-align: center;
+    background-color: #FFC9E9;
+    padding: 50px;
+    margin: 50px auto;
+    width: 50%;
+    border-radius: 20px;
+`;
+
+const ImgPerfilGrande = styled.img`
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 3px solid #6c4539;
+`;
+
+const NomePerfil = styled.h1`
+    color: black;
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 20px;
+`;
+
 export {
     Background,
     Header,
@@ -186,5 +210,8 @@ export {
     FecharMenu,
     Title,
     Footer,
-    Direitos
+    Direitos,
+    PerfilContainer,
+    ImgPerfilGrande,
+    NomePerfil
   };

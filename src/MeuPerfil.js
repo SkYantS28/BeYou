@@ -15,7 +15,10 @@ import {
     FecharMenu,
     Title,
     Footer,
-    Direitos
+    Direitos,
+    PerfilContainer,
+    ImgPerfilGrande,
+    NomePerfil
 } from "./components/meuperfilestrutura";
 
 
@@ -68,6 +71,11 @@ function MeuPerfil() {
                 <MenuIconLink onClick={() => navigate("/Agendamentos")}>Agendamentos</MenuIconLink>
                 <MenuIconLink onClick={() => navigate("/MinhaLoja")}>Minha Loja</MenuIconLink>
             </MenuIcon>
+
+            <PerfilContainer>
+                <ImgPerfilGrande src="/img/perfil.eu.jpg" alt="Foto de perfil" />
+                <NomePerfil>Sky Crizosti</NomePerfil>
+            </PerfilContainer>
 
             <main>
             
