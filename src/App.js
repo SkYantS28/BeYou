@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Cadastro from "./Cadastro";
 import Login from "./login";
 import Inicial from "./PaginaInicial"; 
-
+import Carrinho  from "./Carrinho";
 
 function App() {
   return (
@@ -11,8 +11,10 @@ function App() {
       <Route path="/Cadastro" element={<Cadastro />} />
       <Route path="/login" element={<Login />} />
       <Route path="/PaginaInicial" element={<Inicial />} />
+      <Route path="/Carrinho" element={<Carrinho />} />
     </Routes>
   );
 }
 
 export default App;
+
