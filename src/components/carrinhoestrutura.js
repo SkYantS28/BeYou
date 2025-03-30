@@ -267,6 +267,47 @@ const ItemCheckbox = styled.input`
     margin-right: 10px;
 `;
 
+const CarrinhoImg = styled.img`
+  width: 30px;
+  margin-top: 2px;
+`;
+
+const QuantidadeContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const BotaoQuantidade = styled.button`
+  margin: 0 5px;
+  cursor: pointer;
+`;
+
+const IconeLixeira = styled.span`
+  cursor: pointer;
+`;
+
+const IconeFavorito = styled.span`
+  cursor: pointer;
+`;
+
+const ProdutoImg = styled.img`
+  width: 50px;
+`;
+
+const Mensagem = styled.div`
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0.9;
+`;
+
 export {
     Background,
     Header,
@@ -287,11 +328,17 @@ export {
     LabelContainer,
     Preco,
     FinalizarCompra,
-    Produtos,
-    Loja,
-    Item,
-    Span,
-    SelecionarLoja,
-    ItemCheckbox
-  };
-  
+    QuantidadeContainer,
+    BotaoQuantidade,
+    IconeLixeira,
+    IconeFavorito,
+    ProdutoImg,
+    Produtos, 
+    Span, 
+    Loja, 
+    CarrinhoImg,
+    SelecionarLoja, 
+    Item, 
+    ItemCheckbox,
+    Mensagem
+};
