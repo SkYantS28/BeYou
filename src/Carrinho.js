@@ -20,15 +20,23 @@ import {
     LabelContainer,
     Preco,
     FinalizarCompra,
-    Produtos,
-    Loja,
-    Item,
-    Span,
-    SelecionarLoja,
-    ItemCheckbox
+    QuantidadeContainer,
+    BotaoQuantidade,
+    IconeLixeira,
+    IconeFavorito,
+    ProdutoImg,
+    Produtos, 
+    Span, 
+    Loja, 
+    CarrinhoImg,
+    SelecionarLoja, 
+    Item, 
+    ItemCheckbox,
+    Mensagem
 } from "./components/carrinhoestrutura";
 
 function Carrinho() {
+    // visibilidade do menu
     const [menuVisible, setMenuVisible] = useState(false);
   
     // linkar paginas
@@ -39,34 +47,38 @@ function Carrinho() {
       setMenuVisible(!menuVisible);
     };
   
-      // recarregar pagina
+    // levar ate a pagina inicial
     const reloadPage = (event) => {
         event.preventDefault();
-        window.location.reload();
+        navigate('/PaginaInicial');
     };
 
+    // controla o checkbox "Selecionar todos"
     const [selecionarTodos, setSelecionarTodos] = useState(false);
+    
+    // armazenar as lojas e seus respectivos itens
     const [lojas, setLojas] = useState([
         {
             nome: "Bellus Esmaltaria",
             selecionada: false,
             itens: [
-                { nome: "Esmalte em Gel - Preto", preco: 10, selecionado: false },
-                { nome: "Esmalte em Gel - Azul", preco: 10, selecionado: false },
+                { nome: "Esmalte em Gel - Preto", preco: 10, selecionado: false, quantidade: 1, imagem: "/img/esmalte_preto.webp" },
+                { nome: "Esmalte em Gel - Azul", preco: 10, selecionado: false, quantidade: 1, imagem: "/img/esmalte_azul.webp" },
             ],
         },
         {
             nome: "Marcia Travessoni",
             selecionada: false,
-            itens: [{ nome: "Creme de Pentear - Bio Extratus", preco: 30, selecionado: false }],
+            itens: [{ nome: "Creme de Pentear - Elseve", preco: 30, selecionado: false, quantidade: 1, imagem: "/img/creme_pentear.jpeg" }],
         },
         {
             nome: "Monisatti",
             selecionada: false,
-            itens: [{ nome: "Máscara Capilar - Eudora", preco: 65, selecionado: false }],
+            itens: [{ nome: "Máscara Capilar - Eudora", preco: 75, selecionado: false, quantidade: 1, imagem: "/img/mascara_capilar.jpeg" }],
         },
     ]);
 
+    // selecionar ou desmarcar todos os itens
     const handleSelecionarTodos = () => {
         const novoEstado = !selecionarTodos;
         setSelecionarTodos(novoEstado);
@@ -77,6 +89,16 @@ function Carrinho() {
         })));
     };
 
+    // exibe a mensagem de favorito
+    const [mensagemFavorito, setMensagemFavorito] = useState("");
+
+    // marca um item como favorito e exibe a mensagem por 2 segundos
+    const handleFavoritar = () => {
+        setMensagemFavorito("Adicionado aos favoritos");
+        setTimeout(() => setMensagemFavorito(""), 2000);
+    };
+
+    // selecionar ou desmarcar uma loja inteira
     const handleSelecionarLoja = (index) => {
         setLojas(prev => {
             const novasLojas = [...prev];
@@ -99,9 +121,30 @@ function Carrinho() {
         });
     };
 
+    // selecionar ou desmarcar um item específico de uma loja
+    const handleQuantidade = (lojaIndex, itemIndex, operacao) => {
+        setLojas(prev => {
+            const novasLojas = [...prev];
+            const item = novasLojas[lojaIndex].itens[itemIndex];
+            if (operacao === "+" && item.quantidade < 10) item.quantidade++;
+            if (operacao === "-" && item.quantidade > 1) item.quantidade--;
+            return novasLojas;
+        });
+    };
+
+    // deletar um item da lista
+    const handleDeletarItem = (lojaIndex, itemIndex) => {
+        setLojas(prev => {
+            const novasLojas = [...prev];
+            novasLojas[lojaIndex].itens.splice(itemIndex, 1);
+            return novasLojas;
+        });
+    };
+
+    // calcular o preço total dos itens selecionados
     const calcularPrecoTotal = () => {
         return lojas.reduce((total, loja) => {
-            return total + loja.itens.reduce((subTotal, item) => subTotal + (item.selecionado ? item.preco : 0), 0);
+            return total + loja.itens.reduce((subTotal, item) => subTotal + (item.selecionado ? item.preco * item.quantidade : 0), 0);
         }, 0);
     };
   
@@ -123,7 +166,6 @@ function Carrinho() {
                 </Perfil>
           
                 <BotaoPerfil onClick={() => navigate("/MeuPerfil")}>Seu perfil</BotaoPerfil>
-  
             </Header>
 
             <MenuIcon menuVisible={menuVisible}>
@@ -141,14 +183,16 @@ function Carrinho() {
                 <Produtos>
                 <SelecionarItens>
                     <input type="checkbox" id="concordo" checked={selecionarTodos} onChange={handleSelecionarTodos} />
-                    <LabelContainer htmlFor="concordo">
+                    <LabelContainer>
                         <Span>Todos os itens</Span>
                         <Preco>R${calcularPrecoTotal()},00</Preco>
                         <FinalizarCompra>Continuar</FinalizarCompra>
                     </LabelContainer>
                 </SelecionarItens>
+                {mensagemFavorito && <Mensagem>{mensagemFavorito}</Mensagem>}
                 {lojas.map((loja, lojaIndex) => (
                     <Loja key={lojaIndex}>
+                        <CarrinhoImg src="/img/casinha.jpg" / >
                         <Title>{loja.nome}</Title>
                         <SelecionarLoja type="checkbox" checked={loja.selecionada} onChange={() => handleSelecionarLoja(lojaIndex)} />
                         Selecionar Tudo
@@ -156,6 +200,14 @@ function Carrinho() {
                             <Item key={itemIndex}>
                                 <ItemCheckbox type="checkbox" checked={item.selecionado} onChange={() => handleSelecionarItem(lojaIndex, itemIndex)} />
                                 {item.nome} (R${item.preco},00)
+                                <QuantidadeContainer>
+                                        <BotaoQuantidade onClick={() => handleQuantidade(lojaIndex, itemIndex, "-")}>-</BotaoQuantidade>
+                                        {item.quantidade}
+                                        <BotaoQuantidade onClick={() => handleQuantidade(lojaIndex, itemIndex, "+")}>+</BotaoQuantidade>
+                                    </QuantidadeContainer>
+                                    <IconeLixeira onClick={() => handleDeletarItem(lojaIndex, itemIndex)}>🗑</IconeLixeira>
+                                    <IconeFavorito onClick={handleFavoritar}>❤️</IconeFavorito>
+
                             </Item>
                         ))}
                     </Loja>
@@ -169,9 +221,7 @@ function Carrinho() {
                 </Direitos>
             </Footer>
 
-
         </Background>
-
     );
 }
 
