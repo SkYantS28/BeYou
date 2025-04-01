@@ -6,7 +6,7 @@ const Background = styled.div`
 
 const Header = styled.header`
     background-image: url("/img/Textura_Rosa.jpg");
-    min-height: 100%; 
+    min-height: 150px;  // Ajustando a altura para não ocupar 100% da altura da tela
     background-position: center;
     background-repeat: no-repeat; 
     background-size: cover;
@@ -18,6 +18,7 @@ const Header = styled.header`
     justify-content: space-between;
     border: 0.5px solid #6c4539;
 `;
+
 
 const LogoContainer = styled.div`
     display: flex;
@@ -37,12 +38,6 @@ const ImgLogo = styled.img`
 const Tres = styled.span`
     color: #6c4539;
     cursor: pointer;
-
-    &:focus {
-        .tres:hover{
-        color: #5E17EB;
-    }
-
     &:hover {
         color: #5E17EB;
     }
@@ -70,69 +65,59 @@ const ImgPerfil = styled.img`
 `;
 
 const PerfilLink = styled.a`
-  color: #f45bf4;
-  text-decoration: none;
+    color: #f45bf4;
+    text-decoration: none;
 
-  &:hover {
-    text-decoration: underline;
-    color: hsl(300, 99%, 64%);
-  }
+    &:hover {
+        text-decoration: underline;
+        color: hsl(300, 99%, 64%);
+    }
 `;
 
 const BotaoPerfil = styled.button`
-    box-sizing: border-box;
     cursor: pointer;
     padding: 15px;
-    text-align: center;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
-    margin-left: 0px;
-    transition: color 0.3s ease;
-    list-style-type: none;
-    color: black;
     background-color: #fd99d5;
     border: solid 2px #6c4539;
-    margin-bottom: 2px;
-    opacity: 0.8;
-    font-size: 20px;
     border-radius: 20px;
+    opacity: 0.8;
+    transition: background-color 0.3s, color 0.3s;
 
-  &:hover {
-    background-color: #FFC9E9;
-    border: solid 2px #6c4539;
-    color: white;
-    cursor: pointer;
-  }
+    &:hover {
+        background-color: #FFC9E9;
+        color: white;
+    }
 `;
 
 const MenuIcon = styled.div`
     height: 100%;
-    width: ${(props) => (props.menuVisible ? '350px' : '0px')};
+    width: ${({ menuVisible }) => (menuVisible ? '350px' : '0px')};
     position: fixed;
-    z-index: 1; 
     top: 0;
     left: 0;
-    background-color:#FFC9E9;
+    background-color: #FFC9E9;
     overflow-x: hidden;
     padding-top: 60px;
-    transition: width 0.5s ease; 
+    transition: width 0.5s ease;
     border: solid 2px #6c4539;
 `;
 
 const MenuIconLink = styled.div`
-    padding: 5px 5px 5px 35px;
-    text-decoration: none;
+    padding: 5px 35px;
     font-size: 30px;
-    color:  hsl(300, 40%, 50%);
+    color: hsl(300, 40%, 50%);
     font-weight: bold;
-    display: block;
-    transition: filter 0.3s ease;
-
-  &:hover {
-    color: hsl(300, 97.50%, 53.10%);
     cursor: pointer;
-  }
+    transition: color 0.3s;
+
+    &:hover {
+        color: hsl(300, 97.5%, 53.1%);
+    }
 `;
+
+
 
 const FecharMenu = styled.a`
     position: absolute;
@@ -140,49 +125,41 @@ const FecharMenu = styled.a`
     right: 25px;
     font-size: 30px;
     font-weight: bold;
-    margin-left: 50px;
 `;
 
 const Title = styled.div`
     text-align: left;
     color: #6c4539;
-    font-style: bold;
-    list-style: none;
     font-size: 40px;
-    margin-bottom: 20px;
-    margin-left: 50px;
-    margin-top: 20px;
+    margin: 20px 50px;
 `;
 
 const Footer = styled.div`
-  background-color: hsl(300, 99%, 64%);;
-  display: flex;
-  color: white;
-  padding: 20px;
-  display: flex; /conteiner manipulavel/
-  align-items: center;
-  justify-content: space-between;
-  border: 3px solid #6c4539;
-  margin-top: 50px;
+    background-color: hsl(300, 99%, 64%);
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 3px solid #6c4539;
+    margin-top: 50px;
 `;
 
 const Direitos = styled.div`
-  color: white;
-  opacity: 50%;
+    opacity: 50%;
 `;
 
-
-//adicionado
-
+// Notificações
 const NotificationContainer = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin: 20px;
-    padding: 20px;
+    gap: 5px;  // Reduzindo o gap entre as notificações
+    margin: 10px; // Ajustando a margem
+    padding: 10px; // Ajustando o padding
     background: #f9f9f9;
     border-radius: 10px;
 `;
+
 
 const NotificationItem = styled.div`
     padding: 10px;
@@ -193,6 +170,8 @@ const NotificationItem = styled.div`
     justify-content: space-between;
     align-items: center;
 `;
+
+
 
 const MarkAsReadButton = styled.button`
     background: #6d098c;
@@ -231,7 +210,9 @@ const NotificationAvatar = styled.img`
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
+    background-color: gray;  // Adicionando uma cor de fundo temporária
 `;
+
 
 const NotificationContent = styled.div`
     flex-grow: 1;
@@ -248,30 +229,28 @@ const NotificationTime = styled.span`
 `;
 
 export {
-  Background,
-  Header,
-  LogoContainer,
-  ImgLogo,
-  Tres,
-  Perfil,
-  ImgPerfil,
-  PerfilLink,
-  BotaoPerfil,
-  MenuIcon,
-  MenuIconLink,
-  FecharMenu,
-  Title,
-  Footer,
-  Direitos,
-  NotificationContainer,
-  NotificationItem,
-  MarkAsReadButton,
-  ClearAllButton,
-  NotificationCategory, // ✅ Agora exportado corretamente
-  NotificationAvatar,   // ✅ Agora exportado corretamente
-  NotificationContent,  // ✅ Agora exportado corretamente
-  NotificationText,     // ✅ Agora exportado corretamente
-  NotificationTime      // ✅ Agora exportado corretamente
+    Background,
+    Header,
+    LogoContainer,
+    ImgLogo,
+    Tres,
+    Perfil,
+    ImgPerfil,
+    PerfilLink,
+    BotaoPerfil,
+    MenuIcon,
+    MenuIconLink,
+    FecharMenu,
+    Title,
+    Footer,
+    Direitos,
+    NotificationContainer,
+    NotificationItem,
+    MarkAsReadButton,
+    ClearAllButton,
+    NotificationCategory,
+    NotificationAvatar,
+    NotificationContent,
+    NotificationText,
+    NotificationTime
 };
-
-  

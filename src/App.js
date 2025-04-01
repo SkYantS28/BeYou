@@ -7,8 +7,7 @@ import Carrinho  from "./Carrinho";
 import MeuPerfil from './MeuPerfil';
 import Cadastroloja from './Cadastroloja';
 import Loginloja from './loginloja';
-import notificacoes_perfil from './notificacoes_perfil';
-
+import NotificacoesPerfil from './notificacoes_perfil'; 
 
 function App() {
   return (
@@ -20,7 +19,7 @@ function App() {
       <Route path="/MeuPerfil" element={<MeuPerfil />} />
       <Route path="/Cadastroloja" element={<Cadastroloja />} />
       <Route path="/loginloja" element={<Loginloja />} />
-      <Route path="/notificacoes_perfil" element={<notificacoes_perfil />} />
+      <Route path="/notificacoes_perfil" element={<NotificacoesPerfil  />} />
     </Routes>
   );
 }
