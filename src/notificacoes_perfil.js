@@ -1,8 +1,35 @@
+
+
 import React, { useState } from 'react';
-import { Background, Header, LogoContainer, ImgLogo, Tres, Perfil, ImgPerfil, PerfilLink, BotaoPerfil, MenuIcon, MenuIconLink, Title, Footer, Direitos, NotificationContainer, NotificationItem, MarkAsReadButton, ClearAllButton, NotificationCategory, NotificationAvatar, NotificationContent, NotificationText, NotificationTime } from './components/notificacoesestrutura';
+import { useNavigate } from "react-router-dom"; // Adicionado
+
+import { Background, 
+        Header, 
+        LogoContainer, 
+        ImgLogo, 
+        Tres, 
+        Perfil, 
+        ImgPerfil, 
+        PerfilLink, 
+        BotaoPerfil, 
+        MenuIcon, 
+        MenuIconLink, 
+        Title, 
+        Footer, 
+        Direitos, 
+        NotificationContainer, 
+        NotificationItem, 
+        ClearAllButton, 
+        NotificationCategory, 
+        NotificationAvatar, 
+        NotificationContent, 
+        NotificationText, 
+        NotificationTime 
+    } from './components/notificacoesestrutura';
 
 function NotificacoesPerfil() {
     const [menuVisible, setMenuVisible] = useState(false);
+    const navigate = useNavigate(); // Adicionado
 
     const [notifications, setNotifications] = useState({
         hoje: [
@@ -34,19 +61,19 @@ function NotificacoesPerfil() {
                 </LogoContainer>
                 <Tres onClick={() => setMenuVisible(!menuVisible)}>&#9776;</Tres>
                 <Perfil>
-                    <PerfilLink>
+                    <PerfilLink onClick={() => navigate("/MeuPerfil")}>
                         <ImgPerfil src="/img/perfil.eu.jpg" alt="Foto de perfil" />
                     </PerfilLink>
                 </Perfil>
-                <BotaoPerfil>Seu perfil</BotaoPerfil>
+                <BotaoPerfil onClick={() => navigate("/MeuPerfil")}>Seu perfil</BotaoPerfil>
             </Header>
 
             <MenuIcon menuVisible={menuVisible}>
-                <MenuIconLink onClick={() => alert('Início')}>Início</MenuIconLink>
-                <MenuIconLink onClick={() => alert('Carrinho')}>Carrinho</MenuIconLink>
-                <MenuIconLink onClick={() => alert('Pesquisar')}>Pesquisar</MenuIconLink>
-                <MenuIconLink onClick={() => alert('Agendamentos')}>Agendamentos</MenuIconLink>
-                <MenuIconLink onClick={() => alert('Minha Loja')}>Minha Loja</MenuIconLink>
+                <MenuIconLink onClick={() => navigate("/")}>Início</MenuIconLink>
+                <MenuIconLink onClick={() => navigate("/Carrinho")}>Carrinho</MenuIconLink>
+                <MenuIconLink onClick={() => navigate("/Pesquisar")}>Pesquisar</MenuIconLink>
+                <MenuIconLink onClick={() => navigate("/Agendamentos")}>Agendamentos</MenuIconLink>
+                <MenuIconLink onClick={() => navigate("/MinhaLoja")}>Minha Loja</MenuIconLink>
             </MenuIcon>
 
             <main>
