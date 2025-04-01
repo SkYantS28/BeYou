@@ -171,20 +171,74 @@ const Direitos = styled.div`
   opacity: 50%;
 `;
 
+
+//adicionado
+
+const NotificationContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+`;
+
+const NotificationItem = styled.div`
+    padding: 10px;
+    background: ${({ read }) => (read ? "#d3d3d3" : "#fff")};
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+const MarkAsReadButton = styled.button`
+    background: #6d098c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        background: #5a0673;
+    }
+`;
+
+const ClearAllButton = styled.button`
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+
+    &:hover {
+        background: darkred;
+    }
+`;
+
 export {
-    Background,
-    Header,
-    LogoContainer,
-    ImgLogo,
-    Tres,
-    Perfil,
-    ImgPerfil,
-    PerfilLink,
-    BotaoPerfil,
-    MenuIcon,
-    MenuIconLink,
-    FecharMenu,
-    Title,
-    Footer,
-    Direitos
-  };
+  Background,
+  Header,
+  LogoContainer,
+  ImgLogo,
+  Tres,
+  Perfil,
+  ImgPerfil,
+  PerfilLink,
+  BotaoPerfil,
+  MenuIcon,
+  MenuIconLink,
+  FecharMenu,
+  Title,
+  Footer,
+  Direitos,
+  NotificationContainer,
+  NotificationItem,
+  MarkAsReadButton,
+  ClearAllButton
+};

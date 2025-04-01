@@ -80,10 +80,18 @@ function MeuPerfil() {
             </PerfilContainer>
 
             <IconeConteiner>
-            <IconeImg src="/img/favoritos.png" alt="" />
-            <IconeImg src="/img/configuracao.png" alt="" />
-            <IconeImg src="/img/dados_perfil.png" alt="" />
-            <IconeImg src="/img/notificacao.png" alt="" />
+                <a href="/favoritos_perfil">
+                    <IconeImg src="/img/favoritos.png" alt="Favoritos" />
+                </a>
+                <a href="/configuracao_perfil">
+                    <IconeImg src="/img/configuracao.png" alt="Configuração" />
+                </a>
+                <a href="/dados_perfil">
+                    <IconeImg src="/img/dados_perfil.png" alt="Perfil" />
+                </a>
+                <a href="/notificacoes_perfil">
+                    <IconeImg src="/img/notificacao.png" alt="notificações" />
+                </a>
             </IconeConteiner>
 
             <main>

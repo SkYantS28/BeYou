@@ -183,8 +183,8 @@ const PerfilContainer = styled.div`
 
 const ImgPerfilGrande = styled.img`
     margin-top: 0px;
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     border: 3px solid #6c4539;
 `;
@@ -196,25 +196,37 @@ const NomePerfil = styled.h1`
     margin-top: 20px;
 `;
 
-// icones (não subir)
+
 const IconeConteiner = styled.div`
-    margin-top: 50px;
+    margin-top: 0px;
+    display: flex; /* Torna o container flexível */
+    justify-content: center; /* Centraliza os ícones horizontalmente */
+    align-items: center; /* Centraliza verticalmente (caso necessário) */
+    gap: 20px; /* Espaçamento entre os ícones */
+    flex-wrap: wrap; /* Permite que os ícones quebrem a linha se necessário */
     overflow: auto;
     white-space: nowrap;
     scrollbar-width: none;
     text-align: center;
-
 `;
 
 const IconeImg = styled.img`
-    margin-bottom: 10px;
-    width: 120px;
-    height: 120px;
-    margin-left: 110px;
-    border: None
+    width: 170px; /* Aumenta o tamanho das imagens */
+    height: 170px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 
-    
+    &:hover {
+        transform: scale(1.1); /* Aumenta a imagem ao passar o mouse */
+        cursor: pointer;
+    }
+
+    &:active {
+        transform: scale(0.95); /* Efeito de clique */
+        opacity: 0.8;
+    }
 `;
+
+
 
 export {
     Background,
