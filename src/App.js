@@ -8,6 +8,8 @@ import MeuPerfil from './MeuPerfil';
 import Cadastroloja from './Cadastroloja';
 import Loginloja from './loginloja';
 import NotificacoesPerfil from './notificacoes_perfil'; 
+import ConfiguracaoPerfil from './configuracao_perfil';
+ 
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
       <Route path="/Cadastroloja" element={<Cadastroloja />} />
       <Route path="/loginloja" element={<Loginloja />} />
       <Route path="/notificacoes_perfil" element={<NotificacoesPerfil  />} />
+      <Route path="/configuracao_perfil" element={<ConfiguracaoPerfil />} />
     </Routes>
   );
 }

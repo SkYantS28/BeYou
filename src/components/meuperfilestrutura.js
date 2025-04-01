@@ -250,7 +250,7 @@ const ImgVisto = styled.img`
 
 const VistoTexto = styled.div`
     position: absolute;
-    top: 850px; /* Ajusta a posição para descer o texto */
+    top: 800px; /* Ajusta a posição para descer o texto */
     left: 50%;
     transform: translateX(-50%);
     color: white;

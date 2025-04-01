@@ -152,10 +152,11 @@ const Title = styled.div`
     margin-bottom: 20px;
     margin-left: 50px;
     margin-top: 20px;
+    
 `;
 
 const Footer = styled.div`
-  background-color: hsl(300, 99%, 64%);;
+  background-color: hsl(300, 99%, 64%);
   display: flex;
   color: white;
   padding: 20px;
@@ -170,6 +171,47 @@ const Direitos = styled.div`
   color: white;
   opacity: 50%;
 `;
+
+const Titulo = styled.div`
+  color: #6c4539;
+  font-style: bold;
+  list-style: none;
+  font-size: 40px;
+  margin-bottom: 20px;
+  margin-left: 50px;
+  margin-top: 20px;
+
+`;
+
+const ConfiguracaoContainer = styled.div`
+  display: flex;
+  flex-direction: column;  
+  justify-content: center;
+  align-items: center;
+  gap: 8px; /* Espaçamento entre os itens */
+  padding: 10px;
+`;
+
+const Opcoes = styled.div`
+  color: #6c4539;
+  width: 500px; /* Define um tamanho padrão */
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.38); 
+  opacity: 90%;
+  border-radius: 12px;
+  border: 1px solid #6c4539;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* Ajuste na transparência ao passar o mouse */
+    transform: scale(1.05);
+  }
+`;
+
 
 export {
     Background,
@@ -186,5 +228,8 @@ export {
     FecharMenu,
     Title,
     Footer,
-    Direitos
+    Direitos,
+    Titulo,
+    ConfiguracaoContainer,
+    Opcoes
   };

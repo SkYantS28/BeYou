@@ -15,8 +15,11 @@ import {
     FecharMenu,
     Title,
     Footer,
-    Direitos
-} from "./components/meuperfilestrutura";
+    Direitos,
+    ConfiguracaoContainer,
+    Opcoes,
+    Titulo
+} from "./components/configuracaoestrutura";
 
 
 
@@ -70,7 +73,16 @@ function MeuPerfil() {
             </MenuIcon>
 
             <main>
-            
+            <Titulo>Configurações:</Titulo>
+            <ConfiguracaoContainer>
+                <Opcoes>Termos e Condições</Opcoes>
+                <Opcoes>Avaliações e Feedback</Opcoes>
+                <Opcoes>Política de Privacidade</Opcoes>
+                <Opcoes>Trocar Idioma</Opcoes>
+                <Opcoes>Acessibilidade</Opcoes>
+                <Opcoes>Tema do Aplicativo</Opcoes>
+                <Opcoes>Sobre</Opcoes>
+            </ConfiguracaoContainer>
             </main>
 
             <Footer>
