@@ -20,7 +20,11 @@ import {
     ImgPerfilGrande,
     NomePerfil,
     IconeConteiner,
-    IconeImg
+    IconeImg,
+    LinhaSeparadora,
+    VistoContainer,
+    ImgVisto,
+    VistoTexto
 } from "./components/meuperfilestrutura";
 
 
@@ -74,28 +78,50 @@ function MeuPerfil() {
                 <MenuIconLink onClick={() => navigate("/MinhaLoja")}>Minha Loja</MenuIconLink>
             </MenuIcon>
 
-            <PerfilContainer>
-                <ImgPerfilGrande src="/img/perfil.eu.jpg" alt="Foto de perfil" />
-                <NomePerfil>Sky Crizosti</NomePerfil>
-            </PerfilContainer>
-
-            <IconeConteiner>
-                <a href="/favoritos_perfil">
-                    <IconeImg src="/img/favoritos.png" alt="Favoritos" />
-                </a>
-                <a href="/configuracao_perfil">
-                    <IconeImg src="/img/configuracao.png" alt="Configuração" />
-                </a>
-                <a href="/dados_perfil">
-                    <IconeImg src="/img/dados_perfil.png" alt="Perfil" />
-                </a>
-                <a href="/notificacoes_perfil">
-                    <IconeImg src="/img/notificacao.png" alt="notificações" />
-                </a>
-            </IconeConteiner>
-
             <main>
-            
+                <PerfilContainer>
+                    <ImgPerfilGrande src="/img/perfil.eu.jpg" alt="Foto de perfil" />
+                    <NomePerfil>Sky Crizosti</NomePerfil>
+                </PerfilContainer>
+
+                <IconeConteiner>
+                    <a href="/favoritos_perfil">
+                        <IconeImg src="/img/favoritos.png" alt="Favoritos" />
+                    </a>
+                    <a href="/configuracao_perfil">
+                        <IconeImg src="/img/configuracao.png" alt="Configuração" />
+                    </a>
+                    <a href="/dados_perfil">
+                        <IconeImg src="/img/dados_perfil.png" alt="Perfil" />
+                    </a>
+                    <a href="/notificacoes_perfil">
+                        <IconeImg src="/img/notificacao.png" alt="notificações" />
+                    </a>
+                </IconeConteiner>
+
+                
+                
+                
+                
+                <VistoContainer>
+                    <LinhaSeparadora />
+                    <VistoTexto>Visto por ultimo</VistoTexto>                    
+                    <ImgVisto src="/img/visto1.jpg" alt= ""/>
+                    <ImgVisto src="/img/promocao_produto1.jpg" alt= ""/>
+                    <ImgVisto src="/img/promocao_produto2.jpg" alt= ""/>
+                    <ImgVisto src="/img/promocao2.jpg" alt= ""/>                   
+                    <ImgVisto src="/img/visto2.jpg" alt= ""/>
+                    <ImgVisto src="/img/visto3.jpg" alt= ""/>
+                    <ImgVisto src="/img/visto4.jpg" alt= ""/>
+                    <ImgVisto src="/img/visto5.jpg" alt= ""/>
+                    <ImgVisto src="/img/visto6.jpg" alt= ""/>
+                    <ImgVisto src="/img/voce_sabia2.jpg" alt= ""/>
+                    <ImgVisto src="/img/voce_sabia3.jpg" alt= ""/>
+                    <ImgVisto src="/img/visto7.jpg" alt= ""/>
+                    <ImgVisto src="/img/promocao1.jpg" alt= ""/>
+                    <ImgVisto src="/img/promocao_produto3.jpg" alt= ""/>
+                    <ImgVisto src="/img/voce_sabia1.jpg" alt= ""/>
+                </VistoContainer>
             </main>
 
             <Footer>

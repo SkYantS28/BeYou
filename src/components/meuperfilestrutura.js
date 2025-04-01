@@ -190,7 +190,7 @@ const ImgPerfilGrande = styled.img`
 `;
 
 const NomePerfil = styled.h1`
-    color: black;
+    color:rgb(78, 50, 41);
     font-size: 50px;
     font-weight: bold;
     margin-top: 20px;
@@ -226,6 +226,48 @@ const IconeImg = styled.img`
     }
 `;
 
+const VistoContainer = styled.div`
+    margin-top: 100px;
+    white-space: nowrap;
+    scrollbar-width: none;
+    flex-wrap: wrap;
+    display: flex;
+    
+`;
+
+const ImgVisto = styled.img`
+    margin-bottom: 10px;
+    width: 300px;
+    height: 300px;
+    margin-left: 20px;
+    border-radius: 20%;
+    border: solid 2px #6c4539;
+
+    &:hover {
+        filter: brightness(0.8);;
+        cursor: pointer;
+`;
+
+const VistoTexto = styled.div`
+    position: absolute;
+    top: 850px; /* Ajusta a posição para descer o texto */
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    padding: 5px 10px;
+    font-size: 30px; /* Reduzi um pouco para melhor encaixe */
+    font-weight: bold;
+    white-space: nowrap;
+    color:rgb(78, 50, 41);
+`;
+
+const LinhaSeparadora = styled.div`
+    width: 100%;
+    height: 2px;
+    background-color: #6c4539;
+    margin: 10px auto;
+`;
+
 
 
 export {
@@ -248,5 +290,9 @@ export {
     ImgPerfilGrande,
     NomePerfil,
     IconeConteiner,
-    IconeImg
+    IconeImg,
+    VistoContainer,
+    ImgVisto,
+    VistoTexto,
+    LinhaSeparadora
   };
