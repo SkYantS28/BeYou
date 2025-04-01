@@ -137,4 +137,5 @@ function NotificacoesPerfil() {
     );
 }
 
+
 export default NotificacoesPerfil;
