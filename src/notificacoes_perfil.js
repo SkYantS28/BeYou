@@ -16,13 +16,14 @@ import {
     Footer,
     Direitos,
     NotificationContainer,
-    NotificationCategory,
     NotificationItem,
-    NotificationContent,
+    NotificationCategory,
     NotificationAvatar,
+    NotificationContent,
     NotificationText,
-    NotificationTime
-} from "./components/notificacoesestrutura";
+    NotificationTime 
+} from './components/notificacoesestrutura';
+
 
 function Notificacoes() {
     const navigate = useNavigate();

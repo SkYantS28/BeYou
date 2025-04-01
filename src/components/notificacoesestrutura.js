@@ -221,6 +221,32 @@ const ClearAllButton = styled.button`
     }
 `;
 
+const NotificationCategory = styled.div`
+    margin-top: 20px;
+    font-weight: bold;
+`;
+
+const NotificationAvatar = styled.img`
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+`;
+
+const NotificationContent = styled.div`
+    flex-grow: 1;
+`;
+
+const NotificationText = styled.p`
+    margin: 0;
+    font-size: 14px;
+`;
+
+const NotificationTime = styled.span`
+    font-size: 12px;
+    color: gray;
+`;
+
 export {
   Background,
   Header,
@@ -240,5 +266,12 @@ export {
   NotificationContainer,
   NotificationItem,
   MarkAsReadButton,
-  ClearAllButton
+  ClearAllButton,
+  NotificationCategory, // ✅ Agora exportado corretamente
+  NotificationAvatar,   // ✅ Agora exportado corretamente
+  NotificationContent,  // ✅ Agora exportado corretamente
+  NotificationText,     // ✅ Agora exportado corretamente
+  NotificationTime      // ✅ Agora exportado corretamente
 };
+
+  
