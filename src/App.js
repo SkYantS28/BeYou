@@ -3,14 +3,13 @@ import { Routes, Route } from "react-router-dom";
 import Cadastro from "./Cadastro";
 import Login from "./login";
 import Inicial from "./PaginaInicial"; 
-import Carrinho  from "./Carrinho";
+import Carrinho from "./Carrinho";
 import MeuPerfil from './MeuPerfil';
 import Cadastroloja from './Cadastroloja';
 import Loginloja from './loginloja';
 import NotificacoesPerfil from './notificacoes_perfil'; 
 import ConfiguracaoPerfil from './configuracao_perfil';
- 
-
+import BemVindo from './bemvindo'; // O caminho deve ser apenas './bemvindo'
 function App() {
   return (
     <Routes>
@@ -21,13 +20,11 @@ function App() {
       <Route path="/MeuPerfil" element={<MeuPerfil />} />
       <Route path="/Cadastroloja" element={<Cadastroloja />} />
       <Route path="/loginloja" element={<Loginloja />} />
-      <Route path="/notificacoes_perfil" element={<NotificacoesPerfil  />} />
+      <Route path="/notificacoes_perfil" element={<NotificacoesPerfil />} />
       <Route path="/configuracao_perfil" element={<ConfiguracaoPerfil />} />
+      <Route path="/" element={<BemVindo />} /> {/* Página de boas-vindas */}
     </Routes>
   );
 }
 
 export default App;
-
-
-
