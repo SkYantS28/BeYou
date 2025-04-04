@@ -219,7 +219,7 @@ const MarkAsReadButton = styled.button`
 `;
 
 const ClearAllButton = styled.button`
-    background: red;
+    background: #ff516f;
     color: white;
     border: none;
     padding: 10px;

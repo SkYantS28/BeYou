@@ -236,14 +236,14 @@ const BotaoLimparTudo = styled.button`
   padding: 12px 20px;
   font-weight: bold;
   font-size: 16px;
-  background-color: #ff4d4d;
+  background-color: #ff516f;;
   color: white;
-  border: 2px solid #6c4539;
+  border: 2px solid #5c000f;
   border-radius: 15px;
   cursor: pointer;
 
   &:hover {
-    background-color: #d42e2e;
+    background-color:rgb(212, 4, 38);
   }
 `;
 
