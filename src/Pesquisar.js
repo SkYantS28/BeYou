@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -11,35 +10,62 @@ import {
     ImgPerfil,
     PerfilLink,
     BotaoPerfil,
-    MenuIcon,
-    MenuIconLink,
-    FecharMenu,
-    PromocaoLugares,
-    LugaresImg,
-    PromocaoImg,
-    PromocaoProdutos,
-    Title,
-    ProdutosImg,
-    LogosEmpresas,
-    EmpresasImg,
-    VoceSabia,
-    VoceSabiaImg,
-    Footer,
-    Direitos
-} from "./components/pesquisarestrutura";
+    BarraPesquisa,
+    TitleCategorias,
+    Categorias,
+    CategoriasImg
+}from "./components/pesquisarestrutura";
+import { Title } from "./components/favoritosestilos";
 
-function Pesquisar() {
+const SearchPage = () => {
   const [menuVisible, setMenuVisible] = useState(false);
 
-  // linkar paginas
   const navigate = useNavigate(); 
+    // abrir e fechar menu
+    const toggleMenu = () => {
+        setMenuVisible(!menuVisible);
+      };
+    
+        // recarregar pagina
+        const reloadPage = (event) => {
+          event.preventDefault();
+          window.location.reload();
+        };
 
+  return (
+    <Background>
+      <Header>
+        <LogoContainer>
+          <ImgLogo onClick={reloadPage} src="/img/new_logo.jpg" alt="Logo" />
+        </LogoContainer>
+        
+        <Tres onClick={toggleMenu}>
+          &#9776;
+        </Tres>
+        
+        <Perfil>
+          <PerfilLink onClick={() => navigate("/MeuPerfil")}>
+            <ImgPerfil src="/img/perfil.eu.jpg" />
+          </PerfilLink>
+        </Perfil>
+        
+        <BotaoPerfil onClick={() => navigate("/MeuPerfil")}>Seu perfil</BotaoPerfil>
 
-    return(
-        <BackgroundImage>
+      </Header>
 
-        </BackgroundImage>
-    );
-}
+      <BarraPesquisa type="text" placeholder="Pesquisar" />
 
-export default Pesquisar;
+      <TitleCategorias>Categorias</TitleCategorias>
+
+      <Categorias>
+        <CategoriasImg src="/img/categoria_sobrancelha.jpg" alt=""/>
+        <CategoriasImg src="/img/categoria_unhas.avif" alt=""/>
+        <CategoriasImg src="/img/categoria_coloracao.webp" alt=""/>
+        <CategoriasImg src="/img/categoria_trancas.webp" alt=""/>
+      </Categorias>
+
+    </Background>
+  );
+};
+
+export default SearchPage;

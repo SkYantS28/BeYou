@@ -10,8 +10,8 @@ import Loginloja from './loginloja';
 import NotificacoesPerfil from './notificacoes_perfil'; 
 import ConfiguracaoPerfil from './configuracao_perfil';
 import FAvoritosPerfil from './FAvoritos_perfil';
-
 import BemVindo from './bemvindo'; 
+import SearchPage from './Pesquisar';
 function App() {
   return (
     <Routes>
@@ -26,6 +26,7 @@ function App() {
       <Route path="/configuracao_perfil" element={<ConfiguracaoPerfil />} />
       <Route path="/FAvoritos_perfil" element={<FAvoritosPerfil />} />
       <Route path="/" element={<BemVindo />} /> {/* Página de boas-vindas */}
+      <Route path="/Pesquisar" element={<SearchPage />} />
     </Routes>
   );
 }
