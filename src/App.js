@@ -9,6 +9,8 @@ import Cadastroloja from './Cadastroloja';
 import Loginloja from './loginloja';
 import NotificacoesPerfil from './notificacoes_perfil'; 
 import ConfiguracaoPerfil from './configuracao_perfil';
+import FAvoritosPerfil from './FAvoritos_perfil';
+
 import BemVindo from './bemvindo'; 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
       <Route path="/loginloja" element={<Loginloja />} />
       <Route path="/notificacoes_perfil" element={<NotificacoesPerfil />} />
       <Route path="/configuracao_perfil" element={<ConfiguracaoPerfil />} />
+      <Route path="/FAvoritos_perfil" element={<FAvoritosPerfil />} />
       <Route path="/" element={<BemVindo />} /> {/* Página de boas-vindas */}
     </Routes>
   );
