@@ -33,17 +33,18 @@ function NotificacoesPerfil() {
 
     const [notifications, setNotifications] = useState({
         hoje: [
-            { id: 1, img: "/img/user1.jpg", text: "Seu agendamento para corte de cabelo foi confirmado!", time: "1h atrás" },
-            { id: 2, img: "/img/user2.jpg", text: "Seu pedido de Shampoo Hidratante foi enviado.", time: "3h atrás" }
+            { id: 1, img: "/img/user1.jpeg", text: "Seu agendamento para corte de cabelo foi confirmado!", time: "1h atrás" },
+            { id: 2, img: "/img/user2.webp", text: "Seu pedido de Shampoo Hidratante foi enviado.", time: "3h atrás" }
         ],
         semana: [
             { id: 3, img: "/img/user3.jpg", text: "Ana começou a seguir sua loja.", time: "2 dias atrás" },
-            { id: 4, img: "/img/user4.jpg", text: "Promoção especial no seu produto favorito!", time: "5 dias atrás" }
+            { id: 4, img: "/img/user4.jpeg", text: "Promoção especial no seu produto favorito!", time: "5 dias atrás" }
         ],
         anteriores: [
-            { id: 5, img: "/img/user5.jpg", text: "Novo serviço disponível: Massagem Relaxante!", time: "1 semana atrás" }
+            { id: 5, img: "/img/user5.jpeg", text: "Novo serviço disponível: Massagem Relaxante!", time: "1 semana atrás" }
         ]
     });
+    
 
     const clearNotifications = () => {
         setNotifications({
