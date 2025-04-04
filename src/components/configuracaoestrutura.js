@@ -183,23 +183,12 @@ const Titulo = styled.div`
 
 `;
 
-const ConfiguracaoContainer = styled.div`
-  display: flex;
-  flex-direction: column;  
-  justify-content: center;
-  align-items: center;
-  gap: 8px; /* Espaçamento entre os itens */
-  padding: 10px;
-`;
 
 const Opcoes = styled.div`
   color: #6c4539;
-  width: 500px; /* Define um tamanho padrão */
-  padding: 10px;
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-  background-color: rgba(255, 255, 255, 0.38); 
+  width: 1000px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.38);
   opacity: 90%;
   border-radius: 12px;
   border: 1px solid #6c4539;
@@ -207,10 +196,75 @@ const Opcoes = styled.div`
   transition: background-color 0.3s ease, transform 0.2s ease;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.8); /* Ajuste na transparência ao passar o mouse */
+    background-color: rgba(255, 255, 255, 0.8);
     transform: scale(1.05);
   }
 `;
+
+const TituloOpcoes = styled.div`
+  font-size: 30px;
+  font-weight: bold;
+`;
+
+const Descricao = styled.div`
+  font-size: 20x;
+  font-weight: normal;
+  margin-top: 10px;
+  display: ${(props) => (props.visivel ? "block" : "none")};
+  line-height: 1.5; /* Espaçamento entre as linhas */
+  text-align: justify; /* Justificação do texto */
+`;
+
+const ConfiguracaoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  white-space: pre-line; /* permite que \n funcione como quebra de linha */
+`;
+
+const OpcaoIdioma = styled.div`
+  font-size: 20px;
+  gap: 8px;
+  margin: 5px 0;
+`;
+
+const TextoProblema = styled.textarea`
+  width: 100%;
+  height: 100px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 14px;
+  resize: none;
+`;
+
+const BotaoEnviar = styled.button`
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #fd99d5;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  transform: scale(1);
+
+  &:hover {
+    background-color: #fd99d5;
+  }
+
+  &:active {
+    transform: scale(0.95); /* Simula o botão sendo pressionado */
+    background-color: #fd99d5;
+  }
+`;
+
 
 
 export {
@@ -231,5 +285,10 @@ export {
     Direitos,
     Titulo,
     ConfiguracaoContainer,
-    Opcoes
+    Opcoes,
+    TituloOpcoes,
+    Descricao,
+    OpcaoIdioma,
+    TextoProblema,
+    BotaoEnviar
   };
