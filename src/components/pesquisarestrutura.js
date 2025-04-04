@@ -118,8 +118,9 @@ const BarraPesquisa = styled.input`
 `;
 
 const TitleCategorias = styled.h1`
-  margin-left: 30px;
+  margin-left: 50px;
   margin-top: -55px;
+  font-size: 40px;
 `;
 
 const Categorias = styled.div`
@@ -130,19 +131,19 @@ const Categorias = styled.div`
 `;
 
 const CategoriasImg = styled.img`
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     width: 350px;
     height: 300px;
     margin-left: 20px;
     border-radius: 20%;
     border: solid 2px #6c4539;
-
   &:hover {
     filter: brightness(0.8);
     border: solid 2px #ff9a6e;
     cursor: pointer;
   }
 `;
+
 
 export {
   Background,

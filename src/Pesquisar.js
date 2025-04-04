@@ -13,7 +13,7 @@ import {
     BarraPesquisa,
     TitleCategorias,
     Categorias,
-    CategoriasImg
+    CategoriasImg,
 }from "./components/pesquisarestrutura";
 import { Title } from "./components/favoritosestilos";
 
@@ -58,7 +58,7 @@ const SearchPage = () => {
       <TitleCategorias>Categorias</TitleCategorias>
 
       <Categorias>
-        <CategoriasImg src="/img/categoria_sobrancelha.jpg" alt=""/>
+        <CategoriasImg src="/img/categoria_sobrancelha.jpg" alt="Sobrancelhas"/>
         <CategoriasImg src="/img/categoria_unhas.avif" alt=""/>
         <CategoriasImg src="/img/categoria_coloracao.webp" alt=""/>
         <CategoriasImg src="/img/categoria_trancas.webp" alt=""/>

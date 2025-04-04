@@ -14,9 +14,9 @@ export const BackgroundImage = styled.div`
 `;
 
 export const Formulario = styled.div`
-  margin: 35px; 
-  max-width: 850px; 
-  padding: 30px; 
+  margin: 40px; 
+  max-width: 750px; 
+  padding: 50px; 
   background-color: white;
   color: black;
   border: solid 2px #6c4539;
