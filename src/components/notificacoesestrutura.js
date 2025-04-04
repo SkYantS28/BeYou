@@ -156,7 +156,7 @@ const NotificationContainer = styled.div`
     gap: 5px;  // Reduzindo o gap entre as notificações
     margin: 10px; // Ajustando a margem
     padding: 10px; // Ajustando o padding
-    background: #f9f9f9;
+    background:rgba(249, 249, 249, 0);
     border-radius: 10px;
 `;
 
@@ -164,6 +164,7 @@ const NotificationContainer = styled.div`
 const NotificationItem = styled.div`
     padding: 10px;
     background: ${({ read }) => (read ? "#d3d3d3" : "#fff")};
+    
     border: 1px solid #ccc;
     border-radius: 5px;
     display: flex;
