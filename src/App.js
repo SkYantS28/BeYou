@@ -9,7 +9,7 @@ import Cadastroloja from './Cadastroloja';
 import Loginloja from './loginloja';
 import NotificacoesPerfil from './notificacoes_perfil'; 
 import ConfiguracaoPerfil from './configuracao_perfil';
-import BemVindo from './bemvindo'; // O caminho deve ser apenas './bemvindo'
+import BemVindo from './bemvindo'; 
 function App() {
   return (
     <Routes>

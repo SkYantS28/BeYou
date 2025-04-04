@@ -9,21 +9,21 @@ export const BackgroundImage = styled.div`
   background-size: cover;
   position: relative;
   display: flex;
-  justify-content: flex-end; /* Alinha o conteúdo à direita */
-  align-items: center; /* Centraliza verticalmente */
+  justify-content: flex-end; 
+  align-items: center; 
 `;
 
 export const Formulario = styled.div`
-  margin: 35px; /* Margem ao redor do formulário */
-  max-width: 850px; /* Definindo a largura máxima do formulário para 750px */
-  padding: 30px; /* Aumentando o padding para mais espaço interno */
+  margin: 35px; 
+  max-width: 850px; 
+  padding: 30px; 
   background-color: white;
   color: black;
   border: solid 2px #6c4539;
-  border-radius: 10px; /* Adicionando bordas arredondadas */
+  border-radius: 10px; 
   display: flex;
-  flex-direction: column; /* Alinha os elementos em coluna */
-  align-items: center; /* Centraliza os elementos horizontalmente */
+  flex-direction: column; 
+  align-items: center; 
 `;
 
 export const Title = styled.h1`
@@ -35,14 +35,14 @@ export const Title = styled.h1`
 export const BotaoCadastrar = styled.button`
   background-color: #f45bf4;
   color: white;
-  padding: 10px 15px; /* Reduzindo o padding para um botão menor */
+  padding: 10px 15px;
   border: solid 2px #6c4539;
   cursor: pointer;
-  width: 50%; /* Ajustando a largura para 50% */
+  width: 50%;
   opacity: 0.8;
-  font-size: 18px; /* Reduzindo o tamanho da fonte */
+  font-size: 18px; 
   margin-top: 15px;
-  border-radius: 25px; /* Ajustando o raio da borda para um formato mais suave */
+  border-radius: 25px; 
 
   &:hover {
     opacity: 1;
