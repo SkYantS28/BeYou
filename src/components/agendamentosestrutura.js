@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 const Background = styled.div`
     background-color:rgb(255, 228, 230);
 `;
@@ -164,53 +163,7 @@ const BotaoSair = styled.button`
     }
 `;
 
-const PromocaoLugares = styled.div`
-    margin-top: 50px;
-    overflow: auto;
-    white-space: nowrap;
-    scrollbar-width: none;
-`;
-
-const LugaresImg = styled.img`
-    margin-top: 50px;
-    overflow: auto;
-    white-space: nowrap;
-    scrollbar-width: none;
-    width: 300px;
-    height: 300px;
-    margin-left: 20px;
-    border-radius: 20%;
-    border: solid 2px #6c4539;
-
-  &:hover {
-    filter: brightness(0.8);;
-    cursor: pointer;
-  }
-`;
-
-const PromocaoImg = styled.img`
-    margin-bottom: 10px;
-    width: 300px;
-    height: 300px;
-    margin-left: 20px;
-    border-radius: 20%;
-    border: solid 2px #6c4539;
-
-  &:hover {
-    filter: brightness(0.8);
-    border: solid 2px #ff9a6e;
-    cursor: pointer;
-  }
-`;
-
-const PromocaoProdutos = styled.div`
-    margin-top: 50px;
-    overflow: auto;
-    white-space: nowrap;
-    scrollbar-width: none;
-`;
-
-const Title = styled.div`
+const Title = styled.h1`
     text-align: left;
     color: #6c4539;
     font-style: bold;
@@ -220,64 +173,6 @@ const Title = styled.div`
     margin-left: 50px;
     margin-top: 20px;
 `;
-
-const ProdutosImg = styled.img`
-    margin-bottom: 10px;
-    width: 300px;
-    height: 300px;
-    margin-left: 20px;
-    border-radius: 20%;
-    border: solid 2px #6c4539;
-
-    &:hover {
-        filter: brightness(0.8);;
-        cursor: pointer;
-    }
-`;
-
-const LogosEmpresas = styled.div`
-    margin-top: 50px;
-    overflow: auto;
-    white-space: nowrap;
-    scrollbar-width: none; 
-`;
-
-const EmpresasImg = styled.img`
-    vertical-align: middle;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    width: 200px;
-    height: 200px;
-    margin-left: 20px;
-    border: solid 2px #6c4539;
-
-    &:hover {
-        filter: brightness(0.8);;
-        cursor: pointer;
-    }
-`;
-
-const VoceSabia = styled.div`
-    margin-top: 50px;
-    overflow: auto;
-    white-space: nowrap;
-    scrollbar-width: none;
-`;
-
-const VoceSabiaImg = styled.img`
-    margin-bottom: 10px;
-    width: 300px;
-    height: 300px;
-    margin-left: 20px;
-    border-radius: 20%;
-    border: solid 2px #6c4539;
-
-    &:hover {
-        filter: brightness(0.8);;
-        cursor: pointer;
-    }
-`;
-
 
 const Footer = styled.div`
   background-color: #FFC9E9;
@@ -380,41 +275,31 @@ const TitleFooter = styled.h3`
 `;
 
 export {
-    Background,
-    Header,
-    LogoContainer,
-    ImgLogo,
-    SearchBar,
-    Menu,
-    MenuLink,
-    BotaoSair,
-    PerfilLink,
-    NoticacaoLink,
-    Perfil,
-    Noticacao,
-    Sair,
-    Icons,
-    
-    PromocaoLugares,
-    LugaresImg,
-    PromocaoImg,
-    PromocaoProdutos,
-    Title,
-    ProdutosImg,
-    LogosEmpresas,
-    EmpresasImg,
-    VoceSabia,
-    VoceSabiaImg,
- 
-    Footer,
-    ConteudoFooter,
-    Coluna,
-    SocialIcons,
-    FooterLink,
-    Links,
-    Logo,
-    Direitos,
-    TitleFooter,
-    Texto
-  };
-  
+  Background,
+  Header,
+  LogoContainer,
+  ImgLogo,
+  SearchBar,
+  Menu,
+  MenuLink,
+  BotaoSair,
+  PerfilLink,
+  NoticacaoLink,
+  Perfil,
+  Noticacao,
+  Sair,
+  Icons,
+
+  Title,
+
+  Footer,
+  ConteudoFooter,
+  Coluna,
+  SocialIcons,
+  FooterLink,
+  Links,
+  Direitos,
+  Logo,
+  TitleFooter,
+  Texto
+};
