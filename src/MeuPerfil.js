@@ -1,24 +1,21 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { User, Bell, LogOut } from "lucide-react";
-import { FaFacebookF, FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
 import {
     Background,
     Header,
     LogoContainer,
     ImgLogo,
-    SearchBar,
-    Menu,
-    MenuLink,
-    BotaoSair,
-    PerfilLink,
-    NoticacaoLink,
+    Tres,
     Perfil,
-    Noticacao,
-    Sair,
-    Icons,
-
+    ImgPerfil,
+    PerfilLink,
+    BotaoPerfil,
+    MenuIcon,
+    MenuIconLink,
+    FecharMenu,
     Title,
+    Footer,
+    Direitos,
     PerfilContainer,
     ImgPerfilGrande,
     NomePerfil,
@@ -27,32 +24,26 @@ import {
     LinhaSeparadora,
     VistoContainer,
     ImgVisto,
-    VistoTexto,
-
-    Footer,
-    ConteudoFooter,
-    Coluna,
-    SocialIcons,
-    FooterLink,
-    Links,
-    Logo,
-    Direitos,
-    TitleFooter,
-    Texto
+    VistoTexto
 } from "./components/meuperfilestrutura";
 
+
+
 function MeuPerfil() {
-   const handleLogout = () => {
-           navigate("/bemvindo"); 
-         };
-     
+    const [menuVisible, setMenuVisible] = useState(false);
+  
     // linkar paginas
     const navigate = useNavigate(); 
-    
-    // levar ate a pagina inicial
+  
+    // abrir e fechar menu
+    const toggleMenu = () => {
+      setMenuVisible(!menuVisible);
+    };
+  
+      // recarregar pagina
     const reloadPage = (event) => {
         event.preventDefault();
-        navigate('/PaginaInicial');
+        window.location.reload();
     };
   
     return (
@@ -61,42 +52,31 @@ function MeuPerfil() {
                 <LogoContainer>
                     <ImgLogo onClick={reloadPage} src="/img/new_logo.jpg" alt="Logo" />
                 </LogoContainer>
-
-                <Menu>
-                    <MenuLink onClick={() => navigate("/PaginaInicial")}>Inicio</MenuLink>
-
-                    <MenuLink onClick={() => navigate("/Carrinho")}>Meu Carrinho</MenuLink>
-
-                    <MenuLink onClick={() => navigate("/Pesquisar")}>Pesquisar</MenuLink>
-
-                    <MenuLink onClick={() => navigate("/Agendamentos")}>Agendamentos</MenuLink>
-
-                    <MenuLink onClick={() => navigate("/FAvoritos_perfil")}>Favoritos</MenuLink>
-
-                </Menu>
-                
-                <SearchBar type="text" placeholder="Busque por item ou loja" />
-
-                <Icons>
-                    <Perfil>
-                        <PerfilLink onClick={() => navigate("/MeuPerfil")}>
-                            <User className="icone" />
-                        </PerfilLink>
-                    </Perfil>
-            
-                    <Noticacao>
-                        <NoticacaoLink onClick={() => navigate("/notificacoes_perfil")}>
-                            <Bell className="icone" />
-                        </NoticacaoLink>
-                    </Noticacao>
-            
-                    <Sair>
-                        <BotaoSair onClick={handleLogout}>
-                            <LogOut className="icone" />
-                        </BotaoSair>
-                    </Sair>
-                </Icons>
+          
+                <Tres onClick={toggleMenu}>
+                    &#9776;
+                </Tres>
+          
+                <Perfil>
+                    <PerfilLink onClick={() => navigate("/MeuPerfil")}>
+                        <ImgPerfil src="/img/perfil.eu.jpg" />
+                    </PerfilLink>
+                </Perfil>
+          
+                <BotaoPerfil onClick={() => navigate("/MeuPerfil")}>Seu perfil</BotaoPerfil>
+  
             </Header>
+
+            <MenuIcon menuVisible={menuVisible}>
+                <MenuIconLink href="javascript:void(0)" className="FecharMenu" onClick={toggleMenu}>
+                &times;
+                </MenuIconLink>
+                <MenuIconLink href="#imagens_passar">Inicio</MenuIconLink>
+                <MenuIconLink onClick={() => navigate("/Carrinho")}>Carrinho</MenuIconLink>
+                <MenuIconLink onClick={() => navigate("/Pesquisar")}>Pesquisar</MenuIconLink>
+                <MenuIconLink onClick={() => navigate("/Agendamentos")}>Agendamentos</MenuIconLink>
+                <MenuIconLink onClick={() => navigate("/MinhaLoja")}>Minha Loja</MenuIconLink>
+            </MenuIcon>
 
             <main>
                 <PerfilContainer>
@@ -111,14 +91,18 @@ function MeuPerfil() {
                     <a href="/configuracao_perfil">
                         <IconeImg src="/img/configuracao.png" alt="Configuração" />
                     </a>
-                    <a href="/DadosPerfil">
+                    <a href="/dados_perfil">
                         <IconeImg src="/img/dados_perfil.png" alt="Perfil" />
                     </a>
                     <a href="/notificacoes_perfil">
                         <IconeImg src="/img/notificacao.png" alt="notificações" />
                     </a>
                 </IconeConteiner>
-     
+
+                
+                
+                
+                
                 <VistoContainer>
                     <LinhaSeparadora />
                     <VistoTexto>Visto por ultimo</VistoTexto>                    
@@ -141,54 +125,11 @@ function MeuPerfil() {
             </main>
 
             <Footer>
-                <ConteudoFooter>
-                    <Coluna>
-                        <TitleFooter>BeYou</TitleFooter>
-
-                        <FooterLink>Site Institucional</FooterLink>
-                        <FooterLink>Fale Conosco</FooterLink>
-                        <FooterLink>Conta e Segurança</FooterLink>
-                        <FooterLink>Carreiras</FooterLink>
-                        <FooterLink>Entregadores</FooterLink>
-
-                    </Coluna>
-
-                    <Coluna>
-                        <TitleFooter>Descubra</TitleFooter>
-
-                        <FooterLink>Cadastre sua loja</FooterLink>
-                        <FooterLink>Beyou Shop</FooterLink>
-                        <FooterLink>BeYou Empresas</FooterLink>
-                        <FooterLink>Blog BeYou Empresas</FooterLink>
-                    </Coluna>
-                    
-                    <Coluna>
-                        <TitleFooter>Social</TitleFooter>
-                        <SocialIcons>
-                            <FooterLink><FaFacebookF/></FooterLink>
-                            <FooterLink><FaTwitter/></FooterLink>
-                            <FooterLink><FaYoutube/></FooterLink>
-                            <FooterLink><FaInstagram/></FooterLink>
-                        </SocialIcons>
-                    </Coluna>
-                    
-                    <Direitos>
-
-                        <Logo src="/img/new_logo.jpg" alt="BeYou Logo" />
-                        
-                        <Texto>© Copyright 2025 - BeYou. Todos os direitos reservados.</Texto>
-
-                        <br></br>
-                        
-                        <Texto>CNPJ 00.000.000/0000-00 / Endereço fictício - Cidade/Estado - CEP 00000-000</Texto>
-
-                    </Direitos>
-
-                    <Links>
-                        <FooterLink>Termos e Condições de Uso</FooterLink> | <FooterLink>Codigo de Conduta</FooterLink> | <FooterLink>Privacidade</FooterLink> | <FooterLink>Dicas de Segurança</FooterLink>
-                    </Links>
-                </ConteudoFooter>
+                <Direitos>
+                    <p>Todos os direitos reservados. @2025 por BeYou</p>
+                </Direitos>
             </Footer>
+
 
         </Background>
 

@@ -17,6 +17,7 @@ import {
     Noticacao,
     Sair,
     Icons,
+    
   
     Produtos,
     SelecionarItens,
@@ -52,7 +53,7 @@ import {
 
 function Carrinho() {
     const handleLogout = () => {
-        navigate("/bemvindo"); 
+        navigate("/login"); 
       };
   
     // linkar paginas
@@ -225,8 +226,6 @@ function Carrinho() {
                             <Item key={itemIndex}>
                                 
                                 <ItemInfo>
-                                    <img src={item.imagem} alt={item.nome} style={{ width: '50px', height: '50px', marginRight: '10px' }} />
-                                    
                                     <ItemCheckbox type="checkbox" checked={item.selecionado} onChange={() => handleSelecionarItem(lojaIndex, itemIndex)} />
                                     {item.nome} (R${item.preco},00)
                                 </ItemInfo>
