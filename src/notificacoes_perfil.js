@@ -17,7 +17,6 @@ import {
   Noticacao,
   Sair,
   Icons,
-
   Title,
   NotificationContainer,
   NotificationItem,
@@ -29,7 +28,6 @@ import {
   NotificationText,
   NotificationTime,
   DateSeparator,
-
   Footer,
   ConteudoFooter,
   Coluna,
@@ -43,21 +41,8 @@ import {
 } from './components/notificacoesestrutura';
 
 function NotificacoesPerfil() {
-  const handleLogout = () => {
-          navigate("/bemvindo"); 
-        };
-    
-  // linkar paginas
   const navigate = useNavigate(); 
-
-  // levar ate a pagina inicial
-  const reloadPage = (event) => {
-      event.preventDefault();
-      navigate('/PaginaInicial');
-  };
-
   const [filtro, setFiltro] = useState("todos");
-
   const [notifications, setNotifications] = useState({
     hoje: [
       { id: 1, tipo: "agendamento", icone: "📅", img: "/img/user1.jpeg", titulo: "Agendamento Confirmado", text: "Seu horário com a Marina (Cabeleireira) foi confirmado para amanhã às 14h.", time: "1h atrás", lida: false },
@@ -109,21 +94,23 @@ function NotificacoesPerfil() {
     return (
       <>
         <DateSeparator>{titulo}</DateSeparator>
-        {filtradas.map(notif => (
-          <NotificationItem key={notif.id} read={notif.lida}>
-            <NotificationAvatar src={notif.img} />
-            <NotificationContent>
-              <NotificationText><strong>{notif.icone} {notif.titulo}</strong></NotificationText>
-              <NotificationText>{notif.text}</NotificationText>
-              <NotificationTime>{notif.time}</NotificationTime>
-            </NotificationContent>
-            {!notif.lida && (
-              <MarkAsReadButton onClick={() => marcarComoLida(notif.id)}>
-                Marcar como lida
-              </MarkAsReadButton>
-            )}
-          </NotificationItem>
-        ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {filtradas.map(notif => (
+            <NotificationItem key={notif.id} read={notif.lida} className="bg-white shadow-md rounded-lg p-4 flex items-start gap-4 h-full">
+              <NotificationAvatar src={notif.img} className="w-14 h-14 object-cover rounded-full" />
+              <NotificationContent className="flex-1">
+                <NotificationText className="font-semibold">{notif.icone} {notif.titulo}</NotificationText>
+                <NotificationText>{notif.text}</NotificationText>
+                <NotificationTime className="text-sm text-gray-500">{notif.time}</NotificationTime>
+              </NotificationContent>
+              {!notif.lida && (
+                <MarkAsReadButton onClick={() => marcarComoLida(notif.id)}>
+                  Marcar como lida
+                </MarkAsReadButton>
+              )}
+            </NotificationItem>
+          ))}
+        </div>
       </>
     );
   };
@@ -134,67 +121,57 @@ function NotificacoesPerfil() {
     <Background>
       <Header>
         <LogoContainer>
-            <ImgLogo onClick={reloadPage} src="/img/new_logo.jpg" alt="Logo" />
+          <ImgLogo onClick={() => navigate('/PaginaInicial')} src="/img/new_logo.jpg" alt="Logo" />
         </LogoContainer>
-
         <Menu>
-            <MenuLink onClick={() => navigate("/PaginaInicial")}>Inicio</MenuLink>
-
-            <MenuLink onClick={() => navigate("/Carrinho")}>Meu Carrinho</MenuLink>
-
-            <MenuLink onClick={() => navigate("/Pesquisar")}>Pesquisar</MenuLink>
-
-            <MenuLink onClick={() => navigate("/Agendamentos")}>Agendamentos</MenuLink>
-
-            <MenuLink onClick={() => navigate("/FAvoritos_perfil")}>Favoritos</MenuLink>
-
+          <MenuLink onClick={() => navigate("/PaginaInicial")}>Inicio</MenuLink>
+          <MenuLink onClick={() => navigate("/Carrinho")}>Meu Carrinho</MenuLink>
+          <MenuLink onClick={() => navigate("/Pesquisar")}>Pesquisar</MenuLink>
+          <MenuLink onClick={() => navigate("/Agendamentos")}>Agendamentos</MenuLink>
+          <MenuLink onClick={() => navigate("/FAvoritos_perfil")}>Favoritos</MenuLink>
         </Menu>
-        
         <SearchBar type="text" placeholder="Busque por item ou loja" />
-
         <Icons>
-            <Perfil>
-                <PerfilLink onClick={() => navigate("/MeuPerfil")}>
-                    <User className="icone" />
-                </PerfilLink>
-            </Perfil>
-
-            <Noticacao>
-                <NoticacaoLink onClick={() => navigate("/notificacoes_perfil")}>
-                    <Bell className="icone" />
-                </NoticacaoLink>
-            </Noticacao>
-
-            <Sair>
-                <BotaoSair onClick={handleLogout}>
-                    <LogOut className="icone" />
-                </BotaoSair>
-            </Sair>
+          <Perfil>
+            <PerfilLink onClick={() => navigate("/MeuPerfil")}> <User className="icone" /> </PerfilLink>
+          </Perfil>
+          <Noticacao>
+            <NoticacaoLink onClick={() => navigate("/notificacoes_perfil")}> <Bell className="icone" /> </NoticacaoLink>
+          </Noticacao>
+          <Sair>
+            <BotaoSair onClick={() => navigate("/bemvindo")}><LogOut className="icone" /></BotaoSair>
+          </Sair>
         </Icons>
       </Header>
-      {/* Conteúdo principal */}
-      <main>
+
+      <main className="p-5">
         <Title>Notificações ✨</Title>
+        <div className="filter-section">
+          <MarkAsReadButton onClick={marcarTodasComoLidas}>
+            Marcar todas como lidas
+          </MarkAsReadButton>
 
-        <div style={{ margin: '0 20px' }}>
-          <MarkAsReadButton onClick={marcarTodasComoLidas}>Marcar todas como lidas</MarkAsReadButton>
-
-          <div style={{ marginTop: '10px' }}>
-            <label htmlFor="filtro" style={{ marginRight: '10px' }}>Filtrar por tipo 🧼:</label>
-            <select id="filtro" onChange={(e) => setFiltro(e.target.value)} value={filtro}>
+          <div className="filter-container">
+            <label htmlFor="filtro">Filtrar por tipo 🧼:</label>
+            <select
+              id="filtro"
+              value={filtro}
+              onChange={(e) => setFiltro(e.target.value)}
+            >
               {Object.entries(tipos).map(([key, value]) => (
-                <option key={key} value={key}>{value}</option>
+                <option key={key} value={key}>
+                  {value}
+                </option>
               ))}
             </select>
           </div>
         </div>
 
-        {/* Área das notificações */}
         <NotificationContainer>
           {todasNotificacoesVazias ? (
-            <div style={{ textAlign: 'center', marginTop: '40px', opacity: 0.8 }}>
-              <img src="/img/vazio.png" alt="Sem notificações" style={{ width: '100px' }} />
-              <p>✨ Você está por dentro de tudo! Assim que houver novidades, a gente te avisa por aqui 💖</p>
+            <div className="text-center mt-10 opacity-80">
+              <img src="/img/vazio.png" alt="Sem notificações" className="w-24 mx-auto" />
+              <p className="mt-2">✨ Você está por dentro de tudo! Assim que houver novidades, a gente te avisa por aqui 💖</p>
             </div>
           ) : (
             <>
@@ -204,10 +181,9 @@ function NotificacoesPerfil() {
           )}
         </NotificationContainer>
 
-        {/* Limpar tudo */}
-        <ClearAllButton onClick={() => setNotifications({ hoje: [], semana: [] })}>
-          Limpar tudo
-        </ClearAllButton>
+        <div className="text-center mt-6">
+          <ClearAllButton onClick={() => setNotifications({ hoje: [], semana: [] })}>Limpar tudo</ClearAllButton>
+        </div>
       </main>
 
       <Footer>

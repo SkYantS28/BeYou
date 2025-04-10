@@ -9,18 +9,19 @@ const Background = styled.div`
 
 const Header = styled.header`
     background-image: url("/img/Textura_Rosa.jpg");
-    min-height: 100%; 
-    background-position: center;
-    background-repeat: no-repeat; 
     background-size: cover;
-    position: relative;
-    color: #6c4539;
-    padding: 10px 20px;
-    display: flex; 
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px 40px;
+    border-bottom: 4px solid #e6b2d4;
+    border-radius: 0 0 30px 30px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 0.5px solid #6c4539;
+    color: #6c4539;
 `;
+
 
 const LogoContainer = styled.div`
     display: flex;
@@ -38,20 +39,26 @@ const ImgLogo = styled.img`
 
 const SearchBar = styled.input`
     width: 30%;
-    padding: 10px;
-    border: 2px solid hsl(300, 99%, 64%);
-    border-radius: 20px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 25px;
     font-size: 16px;
     color: #6c4539;
     outline: none;
-    background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(5px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
 
     &::placeholder {
-        color: #6c4539;
+        color: #a47d6e;
+        font-style: italic;
+    }
+
+    &:focus {
+        border: 2px solid hsl(300, 99%, 64%);
     }
 `;
+
 
 const Menu = styled.div`
   overflow: hidden;
@@ -186,13 +193,20 @@ const NotificationContainer = styled.div`
 `;
 
 const NotificationItem = styled.div`
-    padding: 10px;
-    background: ${({ read }) => (read ? "#d3d3d3" : "#fff")};
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 12px 16px;
+    background: ${({ read }) => (read ? "#f0e6e9" : "#fff")};
+    border: 1px solid #e8c2d9;
+    border-radius: 12px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        background-color: #ffe9f3;
+        transform: scale(1.01);
+    }
 `;
 
 const NotificationCategory = styled.div`
@@ -224,18 +238,54 @@ const NotificationTime = styled.span`
 
 // ===== Botões de Ação =====
 
+
+const FilterSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px;
+
+  .filter-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    label {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    select {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      background-color: #fff5f9;
+    }
+  }
+
+  button {
+    align-self: flex-start;
+  }
+`;
+
+
 const MarkAsReadButton = styled.button`
-    background: #6d098c;
+    background: linear-gradient(to right, #ffb6c1, #db7093);
     color: white;
     border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 8px 14px;
+    border-radius: 20px;
     cursor: pointer;
+    transition: 0.3s ease;
+    font-weight: bold;
 
     &:hover {
-        background: #5a0673;
+        background: linear-gradient(to right, #db7093, #c71585);
+        transform: translateY(-1px);
     }
 `;
+
 
 const ClearAllButton = styled.button`
     background: #ff516f;
@@ -377,7 +427,7 @@ export {
     Noticacao,
     Sair,
     Icons,
-
+    FilterSection,
     Title,
     NotificationContainer,
     NotificationItem,
@@ -401,3 +451,4 @@ export {
     TitleFooter,
     Texto
 };
+
