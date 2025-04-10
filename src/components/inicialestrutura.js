@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { createGlobalStyle } from 'styled-components';
 
 const Background = styled.div`
     background-color:rgb(255, 228, 230);
@@ -36,19 +36,34 @@ const ImgLogo = styled.img`
 
 const SearchBar = styled.input`
     width: 30%;
-    padding: 10px;
+    padding: 12px 18px;
     border: 2px solid hsl(300, 99%, 64%);
     border-radius: 20px;
     font-size: 16px;
     color: #6c4539;
     outline: none;
     background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(5px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
 
     &::placeholder {
         color: #6c4539;
+        font-style: italic;
     }
+
+    &:focus {
+      border: 2px solid hsl(300, 99%, 64%);
+    }
+
+    &:hover {
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
 `;
 
 const Menu = styled.div`
@@ -165,19 +180,19 @@ const BotaoSair = styled.button`
 `;
 
 const PromocaoLugares = styled.div`
-    margin-top: 50px;
+    margin-top: 30px;
     overflow: auto;
     white-space: nowrap;
     scrollbar-width: none;
 `;
 
 const LugaresImg = styled.img`
-    margin-top: 50px;
+    margin-top: 30px;
     overflow: auto;
     white-space: nowrap;
     scrollbar-width: none;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     margin-left: 20px;
     border-radius: 20%;
     border: solid 2px #6c4539;
@@ -185,21 +200,37 @@ const LugaresImg = styled.img`
   &:hover {
     filter: brightness(0.8);;
     cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
   }
 `;
 
 const PromocaoImg = styled.img`
-    margin-bottom: 10px;
-    width: 300px;
-    height: 300px;
+    margin-top: 30px;
+    overflow: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    width: 200px;
+    height: 200px;
     margin-left: 20px;
     border-radius: 20%;
     border: solid 2px #6c4539;
 
   &:hover {
-    filter: brightness(0.8);
-    border: solid 2px #ff9a6e;
+    filter: brightness(0.8);;
     cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
   }
 `;
 
@@ -215,24 +246,33 @@ const Title = styled.div`
     color: #6c4539;
     font-style: bold;
     list-style: none;
-    font-size: 40px;
-    margin-bottom: 20px;
+    font-size: 30px;
     margin-left: 50px;
     margin-top: 20px;
 `;
 
 const ProdutosImg = styled.img`
-    margin-bottom: 10px;
-    width: 300px;
-    height: 300px;
+    margin-top: 30px;
+    overflow: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    width: 200px;
+    height: 200px;
     margin-left: 20px;
     border-radius: 20%;
     border: solid 2px #6c4539;
 
-    &:hover {
-        filter: brightness(0.8);;
-        cursor: pointer;
-    }
+  &:hover {
+    filter: brightness(0.8);;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
 `;
 
 const LogosEmpresas = styled.div`
@@ -243,18 +283,27 @@ const LogosEmpresas = styled.div`
 `;
 
 const EmpresasImg = styled.img`
-    vertical-align: middle;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    width: 200px;
-    height: 200px;
+    margin-top: 30px;
+    overflow: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    width: 150px;
+    height: 150px;
     margin-left: 20px;
+    border-radius: 100%;
     border: solid 2px #6c4539;
 
-    &:hover {
-        filter: brightness(0.8);;
-        cursor: pointer;
-    }
+  &:hover {
+    filter: brightness(0.8);;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
 `;
 
 const VoceSabia = styled.div`
@@ -265,17 +314,27 @@ const VoceSabia = styled.div`
 `;
 
 const VoceSabiaImg = styled.img`
-    margin-bottom: 10px;
-    width: 300px;
-    height: 300px;
+    margin-top: 30px;
+    overflow: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    width: 200px;
+    height: 200px;
     margin-left: 20px;
     border-radius: 20%;
     border: solid 2px #6c4539;
 
-    &:hover {
-        filter: brightness(0.8);;
-        cursor: pointer;
-    }
+  &:hover {
+    filter: brightness(0.8);;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
 `;
 
 
@@ -379,6 +438,25 @@ const TitleFooter = styled.h3`
     font-size: 40px;
 `;
 
+const GlobalStyle = createGlobalStyle`
+  ::-webkit-scrollbar {
+    width: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  ::-webkit-scrollbar-track {
+    background: #ffe4ec;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #ff69b4;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff1493;
+  }
+`;
+
 export {
     Background,
     Header,
@@ -415,6 +493,7 @@ export {
     Logo,
     Direitos,
     TitleFooter,
-    Texto
+    Texto,
+    GlobalStyle
   };
   

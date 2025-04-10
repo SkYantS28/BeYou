@@ -40,23 +40,33 @@ const ImgLogo = styled.img`
 const SearchBar = styled.input`
     width: 30%;
     padding: 12px 18px;
-    border: none;
-    border-radius: 25px;
+    border: 2px solid hsl(300, 99%, 64%);
+    border-radius: 20px;
     font-size: 16px;
     color: #6c4539;
     outline: none;
-    background: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(8px);
     box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
 
     &::placeholder {
-        color: #a47d6e;
+        color: #6c4539;
         font-style: italic;
     }
 
     &:focus {
-        border: 2px solid hsl(300, 99%, 64%);
+      border: 2px solid hsl(300, 99%, 64%);
     }
+
+    &:hover {
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
 `;
 
 

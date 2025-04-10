@@ -9,7 +9,7 @@ import {
     BotaoLogin,
     EsqueciSenha,
     InputLink
-} from "./components/loginestrutura";
+} from "./components/loginlojaestrutura";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -54,7 +54,7 @@ const Login = () => {
         </EsqueciSenha>
 
         <BotaoLogin type="submit">Entrar</BotaoLogin>
-        <BotaoCadastro type="button" onClick={() => navigate("/Cadastro")}>Cadastrar</BotaoCadastro>
+        <BotaoCadastro type="button" onClick={() => navigate("/Cadastroloja")}>Cadastrar</BotaoCadastro>
 
       </form>
       </Formulario>
