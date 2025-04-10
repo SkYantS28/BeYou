@@ -14,6 +14,7 @@ import Inicial from "./PaginaInicial";
 import SearchPage from './Pesquisar';
 import DadosPerfil from './DadosPerfil';
 
+
 function App() {
   return (
     <Routes>
@@ -29,7 +30,7 @@ function App() {
       <Route path="/FAvoritos_perfil" element={<FAvoritosPerfil />} />
       <Route path="/bemvindo" element={<BemVindo />} />
       <Route path="/Pesquisar" element={<SearchPage />} />
-      <Route path="/DadosPerfil" element={<SearchPage />} />
+      <Route path="/dadosperfil" element={<DadosPerfil />} />
     </Routes>
   );
 }
