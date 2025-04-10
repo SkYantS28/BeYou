@@ -77,6 +77,12 @@ const MenuLink = styled.a`
   }
 `;
 
+const Secao = styled.section`
+  padding: 20px;
+  margin: 10px 0;
+`;
+
+
 const Icons = styled.div`
   display: flex;
   overflow: hidden;

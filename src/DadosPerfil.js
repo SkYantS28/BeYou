@@ -169,7 +169,7 @@ function ExcluirConta() {
   );
 }
 
-function MeusDados() {
+function TelaMeusDados() {
   return (
     <DadosContainer>
       <DadosPessoais />
@@ -284,4 +284,4 @@ function MeuPerfil() {
   );
 }
 
-export default DadosPerfil;
+export default MeuPerfil;
