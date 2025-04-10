@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 const Background = styled.div`
     background-color:rgb(255, 228, 230);
 `;
@@ -161,8 +163,17 @@ const BotaoSair = styled.button`
     }
 `;
 
-
-
+const Title = styled.div`
+    text-align: left;
+    color: #6c4539;
+    font-style: bold;
+    list-style: none;
+    font-size: 40px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-top: 20px;
+    
+`;
 const Footer = styled.div`
   background-color: #FFC9E9;
   display: flex;
@@ -262,32 +273,96 @@ const TitleFooter = styled.h3`
     font-size: 40px;
 `;
 
-export{
+const Secao = styled.section`
+  background-color: rgba(255, 255, 255, 0.38);
+  border-radius: 12px;
+  border: 1px solid #6c4539;
+  padding: 20px;
+  margin-bottom: 20px;
+`;
 
-Background,
-Header,
-LogoContainer,
-ImgLogo,
-SearchBar,
-Menu,
-MenuLink,
-BotaoSair,
-PerfilLink,
-NoticacaoLink,
-Perfil,
-Noticacao,
-Sair,
-Icons,
+const Label = styled.label`
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+`;
+
+const TextArea = styled.textarea`
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+`;
+
+const Botao = styled.button`
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 5px 0;
+`;
+
+const BotaoExcluir = styled(Botao)`
+  background-color: #d9534f;
+  color: white;
+`;
+
+const BotaoEnviar = styled(Botao)`
+  background-color: #fd99d5;
+  color: white;
+  width: 100%;
+`;
+
+const Titulo = styled.h1`
+  font-size: 32px;
+  color: #6c4539;
+`;
 
 
-Footer,
-ConteudoFooter,
-Coluna,
-SocialIcons,
-FooterLink,
-Links,
-Direitos,
-Logo,
-TitleFooter,
-Texto
+export {   
+  Background,
+  Header,
+  LogoContainer,
+  ImgLogo,
+  SearchBar,
+  Menu,
+  MenuLink,
+  BotaoSair,
+  PerfilLink,
+  NoticacaoLink,
+  Perfil,
+  Noticacao,
+  Sair,
+  Icons,
+  
+  Secao,
+  Label,
+  Input,
+  TextArea,
+  BotaoEnviar,
+  BotaoExcluir,
+  Title,
+  Footer,
+  ConteudoFooter,
+  Coluna,
+  SocialIcons,
+  FooterLink,
+  Links,
+  Direitos,
+  Logo,
+  TitleFooter,
+  Texto,
+  Titulo
 };
+

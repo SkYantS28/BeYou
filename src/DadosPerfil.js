@@ -3,58 +3,176 @@ import { useNavigate } from "react-router-dom";
 import { User, Bell, LogOut } from "lucide-react";
 import { FaFacebookF, FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
 import {
-    Background,
-    Header,
-    LogoContainer,
-    ImgLogo,
-    SearchBar,
-    Menu,
-    MenuLink,
-    BotaoSair,
-    PerfilLink,
-    NoticacaoLink,
-    Perfil,
-    Noticacao,
-    Sair,
-    Icons,
+  Background,
+  Header,
+  LogoContainer,
+  ImgLogo,
+  SearchBar,
+  Menu,
+  MenuLink,
+  BotaoSair,
+  PerfilLink,
+  NoticacaoLink,
+  Perfil,
+  Noticacao,
+  Sair,
+  Icons,
+  
+  Secao,
+  Label,
+  Input,
+  TextArea,
+  BotaoEnviar,
+  BotaoExcluir,
 
-    Title,
-    PerfilContainer,
-    ImgPerfilGrande,
-    NomePerfil,
-    IconeConteiner,
-    IconeImg,
-    LinhaSeparadora,
-    VistoContainer,
-    ImgVisto,
-    VistoTexto,
+  Footer,
+  ConteudoFooter,
+  Coluna,
+  SocialIcons,
+  FooterLink,
+  Links,
+  Direitos,
+  Logo,
+  TitleFooter,
+  Texto,
+  Titulo
+} from "./components/dadosperfilestrutura";
 
-    Footer,
-    ConteudoFooter,
-    Coluna,
-    SocialIcons,
-    FooterLink,
-    Links,
-    Logo,
-    Direitos,
-    TitleFooter,
-    Texto
-} from "./components/meuperfilestrutura";
+function DadosPessoais() {
+    return (
+      <section>
+        <h2>Dados Pessoais</h2>
+        <label>Nome completo</label>
+        <input type="text" />
+  
+        <label>Nome social</label>
+        <input type="text" />
+  
+        <label>Data de nascimento</label>
+        <input type="date" />
+  
+        <label>Gênero</label>
+        <input type="text" />
+  
+        <label>CPF / CNPJ</label>
+        <input type="text" />
+  
+        <label>RG</label>
+        <input type="text" />
+  
+        <label>Foto de perfil</label>
+        <input type="file" />
+      </section>
+    );
+  }
+  
+  function Contato() {
+    return (
+      <section>
+        <h2>Contato</h2>
+        <label>E-mail principal</label>
+        <input type="email" />
+  
+        <label>E-mail alternativo</label>
+        <input type="email" />
+  
+        <label>Telefone celular</label>
+        <input type="tel" />
+  
+        <label>Telefone fixo</label>
+        <input type="tel" />
+  
+        <label>WhatsApp</label>
+        <input type="tel" />
+      </section>
+    );
+  }
+  
+  function Endereco() {
+    return (
+      <section>
+        <h2>Endereço</h2>
+        <label>Endereço principal</label>
+        <input type="text" />
+  
+        <label>Múltiplos endereços</label>
+        <textarea placeholder="Insira outros endereços, separados por vírgula" />
+  
+        <label>Endereço padrão</label>
+        <input type="checkbox" /> Marcar este como padrão
+  
+        <label>CEP</label>
+        <input type="text" />
+  
+        <label>Bairro</label>
+        <input type="text" />
+  
+        <label>Cidade</label>
+        <input type="text" />
+  
+        <label>Estado</label>
+        <input type="text" />
+  
+        <label>País</label>
+        <input type="text" />
+      </section>
+    );
+  }
+  
+  function SegurancaDaConta() {
+    return (
+      <section>
+        <h2>Segurança da Conta</h2>
+        <button>Alterar senha</button>
+        <button>Confirmar e-mail</button>
+        <button>Ativar autenticação em dois fatores</button>
+        <p>Histórico de login: <em>último acesso em 10/04/2025</em></p>
+        <p>Dispositivos conectados: <em>2 dispositivos ativos</em></p>
+      </section>
+    );
+  }
+  
+  function ExcluirConta() {
+    return (
+      <section>
+        <h2>Excluir Conta</h2>
+        <p>Solicitação de exclusão de dados pessoais conforme a LGPD.</p>
+        <label>Confirme sua senha para continuar:</label>
+        <input type="password" />
+        <label>Por que você está saindo?</label>
+        <textarea placeholder="Deixe seu feedback (opcional)" />
+        <button style={{ backgroundColor: "#d9534f", color: "white" }}>Excluir minha conta</button>
+      </section>
+    );
+  }
+  
+ function MeusDados() {
+    return (
+      <div className="p-4 space-y-8">
+        <DadosPessoais />
+        <Contato />
+        <Endereco />
+        <SegurancaDaConta />
+        <ExcluirConta />
+      </div>
+    );
+  }
+  
 
 function MeuPerfil() {
-   const handleLogout = () => {
-           navigate("/bemvindo"); 
-         };
-     
+    const handleLogout = () => {
+        navigate("/login"); 
+      };
+  
     // linkar paginas
     const navigate = useNavigate(); 
-    
+  
     // levar ate a pagina inicial
     const reloadPage = (event) => {
         event.preventDefault();
         navigate('/PaginaInicial');
     };
-  
+
     return (
         <Background>
             <Header>
@@ -96,48 +214,12 @@ function MeuPerfil() {
                         </BotaoSair>
                     </Sair>
                 </Icons>
+
             </Header>
 
             <main>
-                <PerfilContainer>
-                    <ImgPerfilGrande src="/img/perfil.eu.jpg" alt="Foto de perfil" />
-                    <NomePerfil>Sky Crizosti</NomePerfil>
-                </PerfilContainer>
-
-                <IconeConteiner>
-                    <a href="/favoritos_perfil">
-                        <IconeImg src="/img/favoritos.png" alt="Favoritos" />
-                    </a>
-                    <a href="/configuracao_perfil">
-                        <IconeImg src="/img/configuracao.png" alt="Configuração" />
-                    </a>
-                    <a href="/DadosPerfil">
-                        <IconeImg src="/img/dados_perfil.png" alt="Perfil" />
-                    </a>
-                    <a href="/notificacoes_perfil">
-                        <IconeImg src="/img/notificacao.png" alt="notificações" />
-                    </a>
-                </IconeConteiner>
-     
-                <VistoContainer>
-                    <LinhaSeparadora />
-                    <VistoTexto>Visto por ultimo</VistoTexto>                    
-                    <ImgVisto src="/img/visto1.jpg" alt= ""/>
-                    <ImgVisto src="/img/promocao_produto1.jpg" alt= ""/>
-                    <ImgVisto src="/img/promocao_produto2.jpg" alt= ""/>
-                    <ImgVisto src="/img/promocao2.jpg" alt= ""/>                   
-                    <ImgVisto src="/img/visto2.jpg" alt= ""/>
-                    <ImgVisto src="/img/visto3.jpg" alt= ""/>
-                    <ImgVisto src="/img/visto4.jpg" alt= ""/>
-                    <ImgVisto src="/img/visto5.jpg" alt= ""/>
-                    <ImgVisto src="/img/visto6.jpg" alt= ""/>
-                    <ImgVisto src="/img/voce_sabia2.jpg" alt= ""/>
-                    <ImgVisto src="/img/voce_sabia3.jpg" alt= ""/>
-                    <ImgVisto src="/img/visto7.jpg" alt= ""/>
-                    <ImgVisto src="/img/promocao1.jpg" alt= ""/>
-                    <ImgVisto src="/img/promocao_produto3.jpg" alt= ""/>
-                    <ImgVisto src="/img/voce_sabia1.jpg" alt= ""/>
-                </VistoContainer>
+                <Titulo>Meus Dados:</Titulo>
+                <MeusDados />
             </main>
 
             <Footer>
@@ -187,11 +269,11 @@ function MeuPerfil() {
                     <Links>
                         <FooterLink>Termos e Condições de Uso</FooterLink> | <FooterLink>Codigo de Conduta</FooterLink> | <FooterLink>Privacidade</FooterLink> | <FooterLink>Dicas de Segurança</FooterLink>
                     </Links>
+
                 </ConteudoFooter>
+
             </Footer>
-
         </Background>
-
     );
 }
 
