@@ -23,6 +23,7 @@ import {
     ImgPerfilGrande,
     NomePerfil,
     IconeConteiner,
+    Icones,
     IconeImg,
     LinhaSeparadora,
     VistoContainer,
@@ -106,26 +107,25 @@ function MeuPerfil() {
                         <NomePerfil>Sky Crizosti</NomePerfil>
                     </PerfilContainer>
 
-                    <IconeConteiner>
-                        <a href="/favoritos_perfil">
-                            <IconeImg src="/img/favoritos.png" alt="Favoritos" />
-                        </a>
-                    </IconeConteiner>
-                    <IconeConteiner>
-                        <a href="/configuracao_perfil">
-                            <IconeImg src="/img/configuracao.png" alt="Configuração" />
-                        </a>
-                    </IconeConteiner>
-                    <IconeConteiner>
-                        <a href="/DadosPerfil">
-                        <IconeImg src="/img/dados_perfil.png" alt="Perfil" />
-                        </a>
-                    </IconeConteiner>
-                    <IconeConteiner>
-                        <a href="/notificacoes_perfil">
-                            <IconeImg src="/img/notificacao.png" alt="notificações" />
-                        </a>
-                    </IconeConteiner>
+                    <Icones>
+                        <IconeConteiner>
+                            <a href="/favoritos_perfil">
+                                <IconeImg src="/img/favoritos.png" alt="Favoritos" />
+                            </a>
+
+                            <a href="/configuracao_perfil">
+                                <IconeImg src="/img/configuracao.png" alt="Configuração" />
+                            </a>
+
+                            <a href="/DadosPerfil">
+                            <IconeImg src="/img/dados_perfil.png" alt="Perfil" />
+                            </a>
+
+                            <a href="/notificacoes_perfil">
+                                <IconeImg src="/img/notificacao.png" alt="notificações" />
+                            </a>
+                        </IconeConteiner>
+                    </Icones>
         
                     <VistoContainer>
                         <LinhaSeparadora />
