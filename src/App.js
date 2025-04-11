@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Routes, Route } from "react-router-dom";
 import Cadastro from "./Cadastro";
@@ -9,6 +10,7 @@ import Cadastroloja from './Cadastroloja';
 import Loginloja from './loginloja';
 import NotificacoesPerfil from './notificacoes_perfil'; 
 import ConfiguracaoPerfil from './configuracao_perfil';
+import Pesquisar from './Pesquisar';
  
 
 function App() {
@@ -23,11 +25,9 @@ function App() {
       <Route path="/loginloja" element={<Loginloja />} />
       <Route path="/notificacoes_perfil" element={<NotificacoesPerfil  />} />
       <Route path="/configuracao_perfil" element={<ConfiguracaoPerfil />} />
+      <Route path="/Pesquisar" element={<Pesquisar />} />
     </Routes>
   );
 }
 
 export default App;
-
-
-
