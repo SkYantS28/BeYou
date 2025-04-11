@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import Calendar from 'react-calendar';
+import { createGlobalStyle } from 'styled-components';
 
 const Background = styled.div`
     background-color:rgb(255, 228, 230);
@@ -173,7 +175,63 @@ const Title = styled.h1`
     margin-left: 50px;
     margin-top: 20px;
 `;
+// header fim
 
+const CustomCalendar = styled(Calendar)`
+  width: 100%;
+  max-width: 500px;
+  background: white;
+  border: none;
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+
+  .react-calendar__navigation button {
+    color: #00796b;
+    font-weight: bold;
+    min-width: 44px;
+    background: none;
+    font-size: 1.2rem;
+    margin-top: 8px;
+  }
+
+  .react-calendar__tile {
+    height: 80px;
+    border-radius: 50%;
+    text-align: center;
+    padding: 0.5rem;
+    transition: 0.3s all;
+  }
+
+  .react-calendar__tile--now {
+    background: #e0f7fa;
+    color: #00796b;
+  }
+
+  .react-calendar__tile--active {
+    background: #00796b;
+    color: white;
+  }
+
+  .highlight {
+    background: #ffeb3b;
+    color: black;
+    font-weight: bold;
+  }
+`;
+
+const Dot = styled.div`
+  height: 8px;
+  width: 8px;
+  background-color: #FF5733;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-top: 2px;
+`;
+
+
+// footer começo
 const Footer = styled.div`
   background-color: #FFC9E9;
   display: flex;
@@ -274,6 +332,26 @@ const TitleFooter = styled.h3`
     font-size: 40px;
 `;
 
+const GlobalStyle = createGlobalStyle`
+  ::-webkit-scrollbar {
+    width: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  ::-webkit-scrollbar-track {
+    background: #ffe4ec;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #ff69b4;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff1493;
+  }
+`;
+
+
 export {
   Background,
   Header,
@@ -291,6 +369,8 @@ export {
   Icons,
 
   Title,
+  CustomCalendar,
+  Dot,
 
   Footer,
   ConteudoFooter,
@@ -301,5 +381,6 @@ export {
   Direitos,
   Logo,
   TitleFooter,
-  Texto
+  Texto,
+  GlobalStyle
 };
