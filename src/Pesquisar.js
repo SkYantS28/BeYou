@@ -22,6 +22,16 @@ const categorias = [
   { nome: "Coloração", imagem: "/img/categoria_coloracao.webp" },
   { nome: "Tranças", imagem: "/img/categoria_trancas.webp" },
   { nome: "Cilios", imagem: "/img/categoria_cilios.jpg" },
+  { nome: "Depilação", imagem: "/img/categoria_depilacao.jpg" },
+  { nome: "Massagem", imagem: "/img/categoria_massagem.jpg" },
+  { nome: "Luzes", imagem: "/img/categoria_luzes.webp" },
+  { nome: "Escova", imagem: "/img/categoria_escova.jpg" },
+  { nome: "Maquiagem", imagem: "/img/categoria_make.jpg" },
+  { nome: "Micropigmentação", imagem: "/img/categoria_micropigmentacao.avif" },
+  { nome: "Limpeza", imagem: "/img/categoria_limpeza.jpg" },
+  { nome: "Corte", imagem: "/img/categoria_corte.jpeg" },
+  { nome: "Hidratação", imagem: "/img/categoria_hidratacao.webp" },
+  { nome: "Mega Hair", imagem: "/img/categoria_mega.webp" },
 ];
 
 const Container = styled.div`
