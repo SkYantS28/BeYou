@@ -60,7 +60,7 @@ const Pesquisar = () => {
         { nome: "Coloração", imagem: "/img/categoria_coloracao.webp" },
         { nome: "Tranças", imagem: "/img/categoria_trancas.webp" },
         { nome: "Cilios", imagem: "/img/categoria_cilios.jpg" },
-        { nome: "Depilação", imagem: "/img/categoria_depilacao.png" },
+        { nome: "Depilação", imagem: "/img/categoria_depilacao.jpg" },
         { nome: "Massagem", imagem: "/img/categoria_massagem.jpg" },
         { nome: "Luzes", imagem: "/img/categoria_luzes.webp" },
         { nome: "Escova", imagem: "/img/categoria_escova.jpg" },
@@ -71,6 +71,7 @@ const Pesquisar = () => {
         { nome: "Hidratação", imagem: "/img/categoria_hidratacao.webp" },
         { nome: "Mega Hair", imagem: "/img/categoria_mega.webp" },
     ];
+
     const [categoriaSelecionada, setCategoriaSelecionada] = useState("");
 
     const categoriasFiltradas = categoriaSelecionada
@@ -125,8 +126,8 @@ const Pesquisar = () => {
                     <Container>
                         <Titulo>Selecione uma categoria</Titulo>
                         <FiltroSelect
-                        value={categoriaSelecionada}
-                        onChange={(e) => setCategoriaSelecionada(e.target.value)}
+                            value={categoriaSelecionada}
+                            onChange={(e) => setCategoriaSelecionada(e.target.value)}
                         >
                         <option value="">Todas as categorias</option>
                         {categorias.map((cat, i) => (
@@ -137,12 +138,12 @@ const Pesquisar = () => {
                         </FiltroSelect>
 
                         <Grid>
-                        {categoriasFiltradas.map((cat, i) => (
-                            <Card key={i}>
-                            <Imagem src={cat.imagem} alt={cat.nome} />
-                            <Nome>{cat.nome}</Nome>
-                            </Card>
-                        ))}
+                            {categoriasFiltradas.map((cat, i) => (
+                                <Card key={i}>
+                                <Imagem src={cat.imagem} alt={cat.nome} />
+                                <Nome>{cat.nome}</Nome>
+                                </Card>
+                            ))}
                         </Grid>
                     </Container>
                 </main>
