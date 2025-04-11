@@ -256,15 +256,16 @@ const Direitos = styled.div`
   margin-top: 20px;
 `;
 
-const Titulo = styled.div`
-  color: #6c4539;
-  font-style: bold;
-  list-style: none;
-  font-size: 40px;
-  margin-bottom: 20px;
-  margin-left: 50px;
-  margin-top: 20px;
+
+const DadosContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
 `;
+
 
 const Opcoes = styled.div`
   color: #6c4539;
@@ -283,6 +284,12 @@ const Opcoes = styled.div`
   }
 `;
 
+const TituloOpcoes = styled.div`
+  font-size: 30px;
+  font-weight: bold;
+`;
+
+
 const Descricao = styled.div`
   font-size: 20px;
   font-weight: normal;
@@ -292,91 +299,67 @@ const Descricao = styled.div`
   text-align: justify;
 `;
 
-const MeusDados = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  padding: 20px;
-  white-space: pre-line;
-`;
-
-
-const Label = styled.label`
+ const Label = styled.label`
   display: block;
-  margin: 10px 0 5px;
   font-weight: bold;
+  margin-top: 10px;
   color: #6c4539;
 `;
 
 const Input = styled.input`
   width: 100%;
-  padding: 10px;
-  border: 1px solid #6c4539;
-  border-radius: 8px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   margin-bottom: 10px;
+  font-size: 16px;
 `;
 
 const TextArea = styled.textarea`
   width: 100%;
-  padding: 10px;
-  border: 1px solid #6c4539;
-  border-radius: 8px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   margin-bottom: 10px;
+  font-size: 16px;
+  resize: none;
 `;
 
 const BotaoEnviar = styled.button`
-  padding: 10px 20px;
-  background-color: hsl(300, 99%, 64%);
-  color: white;
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  background-color: #fd99d5;
+  color: white;
+  font-size: 16px;
   font-weight: bold;
-  margin: 10px 5px 0 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  transform: scale(1);
 
   &:hover {
-    background-color: hsl(300, 99%, 54%);
+    background-color: #fd99d5;
+  }
+
+  &:active {
+    transform: scale(0.95);
+    background-color: #fd99d5;
   }
 `;
 
 const BotaoExcluir = styled(BotaoEnviar)`
-  background-color: #d9534f;
+  background-color: #ff4d4d;
 
   &:hover {
-    background-color: #c9302c;
+    background-color: #ff6666;
+  }
+
+  &:active {
+    background-color: #cc0000;
   }
 `;
-
-const Logo = styled.img`
-  width: 50px;
-  height: auto;
-  border-radius: 50%;
-`;
-
-const TitleFooter = styled.h4`
-  color: #6c4539;
-  font-weight: bold;
-  margin-bottom: 10px;
-`;
-
-const Texto = styled.p`
-  font-size: 14px;
-  color: #6c4539;
-  margin-top: 10px;
-`;
-
-const DadosContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  padding: 20px;
-  white-space: pre-line;
-`;
-
 export {
   Background,
   Header,
@@ -413,5 +396,11 @@ export {
   Opcoes,
   Descricao,
   MeusDados,
-  DadosContainer
+  DadosContainer,
+  TituloOpcoes,
+  Label,
+  Input,
+  TextArea,
+  BotaoEnviar,
+  BotaoExcluir
 };

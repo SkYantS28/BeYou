@@ -102,48 +102,56 @@ function Endereco() {
   const [visivel, setVisivel] = useState(false);
   return (
     <Opcoes onClick={() => setVisivel(!visivel)}>
+      <TituloOpcoes>Endereço</TituloOpcoes>
       <Descricao visivel={visivel}>
-        <h2>Endereço</h2>
+        <b>🏠 Endereço principal:</b> Rua das Flores, 123<br />
+        <b>📍 Múltiplos endereços:</b> Av. Central, 456 – Sala 7, Rua Secundária, 789<br />
+        <b>⭐ Endereço padrão:</b> Sim<br /><br />
 
-        <Label htmlFor="enderecoPrincipal">Endereço principal</Label>
-        <Input type="text" id="enderecoPrincipal" />
-
-        <Label htmlFor="multiplosEnderecos">Múltiplos endereços</Label>
-        <TextArea id="multiplosEnderecos" placeholder="Insira outros endereços, separados por vírgula" />
-
-        <Label htmlFor="enderecoPadrao">
-          <Input type="checkbox" id="enderecoPadrao" /> Marcar este como padrão
-        </Label>
-
-        <Label htmlFor="cep">CEP</Label>
-        <Input type="text" id="cep" />
-
-        <Label htmlFor="bairro">Bairro</Label>
-        <Input type="text" id="bairro" />
-
-        <Label htmlFor="cidade">Cidade</Label>
-        <Input type="text" id="cidade" />
-
-        <Label htmlFor="estado">Estado</Label>
-        <Input type="text" id="estado" />
-
-        <Label htmlFor="pais">País</Label>
-        <Input type="text" id="pais" />
+        <b>🔢 CEP:</b> 01234-567<br />
+        <b>🏙️ Bairro:</b> Jardim das Rosas<br />
+        <b>🌆 Cidade:</b> São Paulo<br />
+        <b>🗺️ Estado:</b> SP<br />
+        <b>🌍 País:</b> Brasil
       </Descricao>
     </Opcoes>
   );
 }
 
+
 function SegurancaDaConta() {
   const [visivel, setVisivel] = useState(false);
+  const [mostrarFormSenha, setMostrarFormSenha] = useState(false);
+
   return (
     <Opcoes onClick={() => setVisivel(!visivel)}>
+      <TituloOpcoes>Segurança da Conta</TituloOpcoes>
       <Descricao visivel={visivel}>
-        <BotaoEnviar type="button">Alterar senha</BotaoEnviar>
-        <BotaoEnviar type="button">Confirmar e-mail</BotaoEnviar>
-        <BotaoEnviar type="button">Ativar autenticação em dois fatores</BotaoEnviar>
-        <p>Histórico de login: <em>último acesso em 10/04/2025</em></p>
-        <p>Dispositivos conectados: <em>2 dispositivos ativos</em></p>
+        <BotaoEnviar type="button" onClick={() => setMostrarFormSenha(!mostrarFormSenha)}>
+          🔒 Alterar senha
+        </BotaoEnviar>
+
+        {mostrarFormSenha && (
+          <>
+            <Label htmlFor="senhaAtual">Senha atual</Label>
+            <Input type="password" id="senhaAtual" name="senhaAtual" />
+
+            <Label htmlFor="novaSenha">Nova senha</Label>
+            <Input type="password" id="novaSenha" name="novaSenha" />
+
+            <Label htmlFor="confirmarSenha">Confirmar nova senha</Label>
+            <Input type="password" id="confirmarSenha" name="confirmarSenha" />
+
+            <BotaoEnviar type="submit">Salvar nova senha</BotaoEnviar>
+          </>
+        )}
+
+        <br />
+        <BotaoEnviar type="button">📧 Confirmar e-mail</BotaoEnviar><br />
+        <BotaoEnviar type="button">🔐 Ativar autenticação em dois fatores</BotaoEnviar><br /><br />
+
+        <b>📅 Histórico de login:</b> <em>último acesso em 10/04/2025</em><br />
+        <b>💻 Dispositivos conectados:</b> <em>2 dispositivos ativos</em>
       </Descricao>
     </Opcoes>
   );
@@ -153,21 +161,26 @@ function ExcluirConta() {
   const [visivel, setVisivel] = useState(false);
   return (
     <Opcoes onClick={() => setVisivel(!visivel)}>
+      <TituloOpcoes>Excluir Conta</TituloOpcoes>
       <Descricao visivel={visivel}>
-        <h2>Excluir Conta</h2>
-        <p>Solicitação de exclusão de dados pessoais conforme a LGPD.</p>
+        <p>🗑️ Solicitação de exclusão de dados pessoais conforme a <b>LGPD</b>.</p><br />
 
-        <Label htmlFor="senhaConfirmacao">Confirme sua senha para continuar:</Label>
-        <Input type="password" id="senhaConfirmacao" />
+        <Label htmlFor="senhaConfirmacao">🔒 Confirme sua senha para continuar:</Label>
+        <Input type="password" id="senhaConfirmacao" name="senhaConfirmacao" /><br />
 
-        <Label htmlFor="motivoSaida">Por que você está saindo?</Label>
-        <TextArea id="motivoSaida" placeholder="Deixe seu feedback (opcional)" />
+        <Label htmlFor="motivoSaida">💬 Por que você está saindo?</Label>
+        <TextArea
+          id="motivoSaida"
+          name="motivoSaida"
+          placeholder="Deixe seu feedback (opcional)"
+        /><br />
 
-        <BotaoExcluir type="submit">Excluir minha conta</BotaoExcluir>
+        <BotaoExcluir type="submit">🚨 Excluir minha conta</BotaoExcluir>
       </Descricao>
     </Opcoes>
   );
 }
+
 
 function TelaMeusDados() {
   return (
