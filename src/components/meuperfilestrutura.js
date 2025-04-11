@@ -183,6 +183,7 @@ const PerfilContainer = styled.div`
     margin: 50px auto;
     width: 50%;
     border-radius: 20px;
+    margin-top: 75px;
 `;
 
 const ImgPerfilGrande = styled.img`
@@ -214,11 +215,23 @@ const NomePerfil = styled.h1`
 `;
 
 const IconeConteiner = styled.div`
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+    flex-wrap: wrap;
+    overflow: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    text-align: center;
+`;
+
+const Icones = styled.div`
     margin-top: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
     flex-wrap: wrap;
     overflow: auto;
     white-space: nowrap;
@@ -254,19 +267,18 @@ const IconeImg = styled.img`
 `;
 
 const VistoContainer = styled.div`
-    margin-top: 100px;
+    margin-top: 120px;
     white-space: nowrap;
     scrollbar-width: none;
     flex-wrap: wrap;
-    display: flex;
-    
+    display: flex;  
 `;
 
 const ImgVisto = styled.img`
-    margin-bottom: 10px;
+    margin-bottom: 50px;
     width: 300px;
     height: 300px;
-    margin-left: 20px;
+    margin-left: 75px;
     border-radius: 20%;
     border: solid 2px #6c4539;
 
@@ -277,7 +289,7 @@ const ImgVisto = styled.img`
 
 const VistoTexto = styled.div`
     position: absolute;
-    top: 800px; /* Ajusta a posição para descer o texto */
+    top: 800px;
     left: 50%;
     transform: translateX(-50%);
     color: white;
@@ -286,13 +298,14 @@ const VistoTexto = styled.div`
     font-weight: bold;
     white-space: nowrap;
     color:rgb(78, 50, 41);
+    margin-top: 100px;
 `;
 
 const LinhaSeparadora = styled.div`
     width: 100%;
     height: 2px;
     background-color: #6c4539;
-    margin: 10px auto;
+    margin: 50px auto;
 `;
 
 
@@ -437,6 +450,7 @@ export {
     NomePerfil,
     IconeConteiner,
     IconeImg,
+    Icones,
     LinhaSeparadora,
     VistoContainer,
     ImgVisto,
