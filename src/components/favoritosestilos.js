@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const Background = styled.div`
     background-color:rgb(255, 228, 230);
@@ -35,19 +36,34 @@ const ImgLogo = styled.img`
 
 const SearchBar = styled.input`
     width: 30%;
-    padding: 10px;
+    padding: 12px 18px;
     border: 2px solid hsl(300, 99%, 64%);
     border-radius: 20px;
     font-size: 16px;
     color: #6c4539;
     outline: none;
     background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(5px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
 
     &::placeholder {
         color: #6c4539;
+        font-style: italic;
     }
+
+    &:focus {
+      border: 2px solid hsl(300, 99%, 64%);
+    }
+
+    &:hover {
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
 `;
 
 const Menu = styled.div`
@@ -401,6 +417,25 @@ const TitleFooter = styled.h3`
     font-size: 40px;
 `;
 
+const GlobalStyle = createGlobalStyle`
+  ::-webkit-scrollbar {
+    width: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  ::-webkit-scrollbar-track {
+    background: #ffe4ec;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #ff69b4;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff1493;
+  }
+`;
+
 export {
   Background,
   Header,
@@ -443,5 +478,6 @@ export {
   Logo,
   Direitos,
   TitleFooter,
-  Texto
+  Texto,
+  GlobalStyle
 };
