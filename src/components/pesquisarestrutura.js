@@ -36,19 +36,34 @@ const ImgLogo = styled.img`
 
 const SearchBar = styled.input`
     width: 30%;
-    padding: 10px;
+    padding: 12px 18px;
     border: 2px solid hsl(300, 99%, 64%);
     border-radius: 20px;
     font-size: 16px;
     color: #6c4539;
     outline: none;
-    background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(5px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ 
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
 
     &::placeholder {
         color: #6c4539;
+        font-style: italic;
     }
+
+    &:focus {
+      border: 2px solid hsl(300, 99%, 64%);
+    }
+
+    &:hover {
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
 `;
 
 const Menu = styled.div`
@@ -169,7 +184,6 @@ const Container = styled.div`
   margin: 0 auto;
 `;
 
-
 const Titulo = styled.h2`
   font-size: 32px;
   margin-bottom: 20px;
@@ -177,12 +191,12 @@ const Titulo = styled.h2`
   text-align: center;
 `;
 
-
 const FiltroSelect = styled.select`
-  padding: 10px 15px;
-  border-radius: 30px;
-  border: 2px solid #e6b2d4;
+  padding: 12px 18px;
+  border-radius: 20px;
+  border: 2px solid hsl(300, 99%, 64%);
   outline: none;
+  color: #6c4539;
   width: 100%;
   max-width: 400px;
   margin: 0 auto 40px;
@@ -190,10 +204,26 @@ const FiltroSelect = styled.select`
   font-size: 16px;
   background-color: white;
   color: #6c4539;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
 
+  &::placeholder {
+    color: #6c4539;
+    font-style: italic;
+  }
 
   &:focus {
-    border-color: #d48abc;
+    border: 2px solid hsl(300, 99%, 64%);
+  }
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
   }
 `;
 
@@ -206,17 +236,32 @@ const Grid = styled.div`
 
 
 const Card = styled.div`
-  border: 2px solid #e6b2d4;
+  border: 2px solid #6c4539;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: 0.3s;
   cursor: pointer;
   background-color: white;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
 
+  &::placeholder {
+    color: #6c4539;
+    font-style: italic;
+  }
+
+  &:focus {
+    border: 2px solid hsl(300, 99%, 64%);
+  }
 
   &:hover {
-    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
   }
 `;
 
@@ -235,6 +280,7 @@ const Nome = styled.p`
   color: #6c4539;
   padding: 15px;
   font-weight: bold;
+  background-color:rgb(255, 233, 247);
 `;
 
 const Footer = styled.div`
