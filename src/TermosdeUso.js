@@ -89,7 +89,7 @@ const Termos = () => {
                     </Icons>
 
                 </Header>
-                <main></maim>
+                <main></main>
                 <Footer>
                     <ConteudoFooter>
                     <Coluna>
