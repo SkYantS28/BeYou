@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const Background = styled.div`
     background-color:rgb(255, 228, 230);
@@ -35,19 +36,34 @@ const ImgLogo = styled.img`
 
 const SearchBar = styled.input`
     width: 30%;
-    padding: 10px;
+    padding: 12px 18px;
     border: 2px solid hsl(300, 99%, 64%);
     border-radius: 20px;
     font-size: 16px;
     color: #6c4539;
     outline: none;
     background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(5px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
 
     &::placeholder {
         color: #6c4539;
+        font-style: italic;
     }
+
+    &:focus {
+      border: 2px solid hsl(300, 99%, 64%);
+    }
+
+    &:hover {
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
 `;
 
 const Menu = styled.div`
@@ -206,20 +222,36 @@ const Preco = styled.p`
 
 const FinalizarCompra = styled.button`
   cursor: pointer;
+  border-radius: 30px; 
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  font-family: 'Poppins', sans-serif;
   padding: 12px 20px;
+  background-color: #f45bf4;
+  color: white;
+  border: solid 2px #6c4539;
+  opacity: 0.8;
   font-size: 18px;
   font-weight: bold;
-  color: black;
-  background-color: hsl(300, 99%, 64%);
-  border: solid 1px #6c4539;
-  border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in-out;
+
+  &::placeholder {
+    color: #6c4539;
+    font-style: italic;
+  }
+
+  &:focus {
+    border: 2px solid hsl(300, 99%, 64%);
+  }
 
   &:hover {
-    background-color: #FFC9E9;
-    color: #6c4539;
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+    transform: translateY(-2px);
     transform: scale(1.1);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
   }
 `;
 
@@ -263,14 +295,16 @@ const Item = styled.div`
 
 const ItemInfo = styled.div`
   display: flex;
-  align-items: center;
+  align-items: left;
   gap: 10px;
+  margin-left: 2px;
 `;
 
 const ItemControles = styled.div`
   display: flex;
   align-items: center;
   gap: 30px;
+  margin-right: 5px;
 `;
 
 const Span = styled.span`
@@ -293,11 +327,11 @@ const CarrinhoImg = styled.img`
 const QuantidadeContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 `;
 
 const BotaoQuantidade = styled.button`
-  width: 15px;
+  width: 18px;
   height: 20px;
   display: flex;
   align-items: center;
@@ -305,30 +339,66 @@ const BotaoQuantidade = styled.button`
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
-  background-color: hsl(300, 99%, 64%);
-  color: black;
+  background-color: #ffc9e9;
+  color: #6c4539;
   border: solid 1px #6c4539;
   border-radius: 50%;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
 
-  &:hover {
-    background-color: #ffc9e9;
+    &:hover {
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+    transform: translateY(-2px);
+    background-color:hsl(300, 99%, 64%);
     color: #6c4539;
     transform: scale(1.1);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
   }
 `;
 
 const IconeLixeira = styled.span`
   cursor: pointer;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
+  backdrop-filter: blur(8px);
+  color: #6c4539;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    transform: scale(1.1);
+    color: hsl(300, 99%, 64%);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
 `;
 
 const IconeFavorito = styled.span`
   cursor: pointer;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
+  color: #6c4539;
+  backdrop-filter: blur(8px);
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    transform: scale(1.1);
+    color: hsl(300, 99%, 64%);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
 `;
 
 const ProdutoImg = styled.img`
@@ -362,6 +432,7 @@ const Footer = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
+  margin-top: 50px;
 `;
 
 const ConteudoFooter = styled.div`
@@ -448,6 +519,25 @@ const TitleFooter = styled.h3`
     font-size: 40px;
 `;
 
+const GlobalStyle = createGlobalStyle`
+  ::-webkit-scrollbar {
+    width: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  ::-webkit-scrollbar-track {
+    background: #ffe4ec;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #ff69b4;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff1493;
+  }
+`;
+
 export {
   Background,
   Header,
@@ -494,5 +584,6 @@ export {
   Direitos,
   Logo,
   TitleFooter,
-  Texto
+  Texto,
+  GlobalStyle
 };
