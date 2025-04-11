@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { User, Bell, LogOut } from "lucide-react";
+import { User, Bell, LogOut, Trash2, Heart, Plus, Minus } from "lucide-react";
 import { FaFacebookF, FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
 import {
     Background,
@@ -17,7 +17,6 @@ import {
     Noticacao,
     Sair,
     Icons,
-    
   
     Produtos,
     SelecionarItens,
@@ -48,12 +47,13 @@ import {
     Logo,
     Direitos,
     TitleFooter,
-    Texto
+    Texto,
+    GlobalStyle
 } from "./components/carrinhoestrutura";
 
 function Carrinho() {
     const handleLogout = () => {
-        navigate("/login"); 
+        navigate("/bemvindo"); 
       };
   
     // linkar paginas
@@ -162,146 +162,153 @@ function Carrinho() {
   
     return (
         <Background>
-            <Header>
-                <LogoContainer>
-                    <ImgLogo onClick={reloadPage} src="/img/new_logo.jpg" alt="Logo" />
-                </LogoContainer>
+            <GlobalStyle />
+                <Header>
+                    <LogoContainer>
+                        <ImgLogo onClick={reloadPage} src="/img/new_logo.jpg" alt="Logo" />
+                    </LogoContainer>
 
-                <Menu>
-                    <MenuLink onClick={() => navigate("/PaginaInicial")}>Inicio</MenuLink>
+                    <Menu>
+                        <MenuLink onClick={() => navigate("/PaginaInicial")}>Inicio</MenuLink>
 
-                    <MenuLink onClick={() => navigate("/Carrinho")}>Meu Carrinho</MenuLink>
+                        <MenuLink onClick={() => navigate("/Carrinho")}>Meu Carrinho</MenuLink>
 
-                    <MenuLink onClick={() => navigate("/Pesquisar")}>Pesquisar</MenuLink>
+                        <MenuLink onClick={() => navigate("/Pesquisar")}>Pesquisar</MenuLink>
 
-                    <MenuLink onClick={() => navigate("/Agendamentos")}>Agendamentos</MenuLink>
+                        <MenuLink onClick={() => navigate("/Agendamentos")}>Agendamentos</MenuLink>
 
-                    <MenuLink onClick={() => navigate("/FAvoritos_perfil")}>Favoritos</MenuLink>
+                        <MenuLink onClick={() => navigate("/FAvoritos_perfil")}>Favoritos</MenuLink>
 
-                </Menu>
+                    </Menu>
+                    
+                    <SearchBar type="text" placeholder="Busque por item ou loja" />
+
+                    <Icons>
+                        <Perfil>
+                            <PerfilLink onClick={() => navigate("/MeuPerfil")}>
+                                <User className="icone" />
+                            </PerfilLink>
+                        </Perfil>
                 
-                <SearchBar type="text" placeholder="Busque por item ou loja" />
+                        <Noticacao>
+                            <NoticacaoLink onClick={() => navigate("/notificacoes_perfil")}>
+                                <Bell className="icone" />
+                            </NoticacaoLink>
+                        </Noticacao>
+                
+                        <Sair>
+                            <BotaoSair onClick={handleLogout}>
+                                <LogOut className="icone" />
+                            </BotaoSair>
+                        </Sair>
+                    </Icons>
 
-                <Icons>
-                    <Perfil>
-                        <PerfilLink onClick={() => navigate("/MeuPerfil")}>
-                            <User className="icone" />
-                        </PerfilLink>
-                    </Perfil>
-            
-                    <Noticacao>
-                        <NoticacaoLink onClick={() => navigate("/notificacoes_perfil")}>
-                            <Bell className="icone" />
-                        </NoticacaoLink>
-                    </Noticacao>
-            
-                    <Sair>
-                        <BotaoSair onClick={handleLogout}>
-                            <LogOut className="icone" />
-                        </BotaoSair>
-                    </Sair>
-                </Icons>
+                </Header>
 
-            </Header>
+                <main>
+                    <Produtos>
+                    <SelecionarItens>
+                        <input type="checkbox" id="concordo" checked={selecionarTodos} onChange={handleSelecionarTodos} />
+                        <LabelContainer>
+                            <Span>{selecionarTodos ? 'Desmarcar tudo' : 'Selecionar tudo'}</Span>
+                            <Preco>R${calcularPrecoTotal()},00</Preco>
+                            <FinalizarCompra>Continuar</FinalizarCompra>
+                        </LabelContainer>
+                    </SelecionarItens>
+                    {mensagemFavorito && <Mensagem>{mensagemFavorito}</Mensagem>}
+                    {lojas.map((loja, lojaIndex) => (
+                        <Loja key={lojaIndex}>
+                            <CarrinhoImg src="/img/casinha.jpg" / >
+                            <Title>{loja.nome}</Title>
+                            <SelecionarLoja type="checkbox" checked={loja.selecionada} onChange={() => handleSelecionarLoja(lojaIndex)} />
+                            <Span>{loja.selecionada ? 'Desmarcar Tudo' : 'Selecionar Tudo'}</Span>
+                            {loja.itens.map((item, itemIndex) => (
 
-            <main>
-                <Produtos>
-                <SelecionarItens>
-                    <input type="checkbox" id="concordo" checked={selecionarTodos} onChange={handleSelecionarTodos} />
-                    <LabelContainer>
-                        <Span>Todos os itens</Span>
-                        <Preco>R${calcularPrecoTotal()},00</Preco>
-                        <FinalizarCompra>Continuar</FinalizarCompra>
-                    </LabelContainer>
-                </SelecionarItens>
-                {mensagemFavorito && <Mensagem>{mensagemFavorito}</Mensagem>}
-                {lojas.map((loja, lojaIndex) => (
-                    <Loja key={lojaIndex}>
-                        <CarrinhoImg src="/img/casinha.jpg" / >
-                        <Title>{loja.nome}</Title>
-                        <SelecionarLoja type="checkbox" checked={loja.selecionada} onChange={() => handleSelecionarLoja(lojaIndex)} />
-                        Selecionar Tudo
-                        {loja.itens.map((item, itemIndex) => (
-
-                            <Item key={itemIndex}>
-                                
-                                <ItemInfo>
-                                    <ItemCheckbox type="checkbox" checked={item.selecionado} onChange={() => handleSelecionarItem(lojaIndex, itemIndex)} />
-                                    {item.nome} (R${item.preco},00)
-                                </ItemInfo>
-                                
-                                <ItemControles>
-                                    <QuantidadeContainer>
-
-                                            <BotaoQuantidade onClick={() => handleQuantidade(lojaIndex, itemIndex, "-")}>-</BotaoQuantidade>
-                                            {item.quantidade}
-                                            
-                                            <BotaoQuantidade onClick={() => handleQuantidade(lojaIndex, itemIndex, "+")}>+</BotaoQuantidade>
-
-                                        </QuantidadeContainer>
-
-                                        <IconeLixeira onClick={() => handleDeletarItem(lojaIndex, itemIndex)}>🗑</IconeLixeira>
+                                <Item key={itemIndex}>
+                                    
+                                    <ItemInfo>
+                                        <img src={item.imagem} alt={item.nome} style={{ width: '50px', height: '50px', marginRight: '10px' }} />
                                         
-                                        <IconeFavorito onClick={handleFavoritar}>❤️</IconeFavorito>
-                                    </ItemControles>
-                            </Item>
-                        ))}
-                    </Loja>
-                ))}
-                </Produtos>
-            </main> 
+                                        <ItemCheckbox type="checkbox" checked={item.selecionado} onChange={() => handleSelecionarItem(lojaIndex, itemIndex)} />
+                                        {item.nome} (R${item.preco},00)
+                                    </ItemInfo>
+                                    
+                                    <ItemControles>
+                                        <QuantidadeContainer>
 
-            <Footer>
-                <ConteudoFooter>
-                    <Coluna>
-                        <TitleFooter>BeYou</TitleFooter>
+                                                <BotaoQuantidade onClick={() => handleQuantidade(lojaIndex, itemIndex, "-")}>
+                                                    <Minus size={16} strokeWidth={3} />
+                                                </BotaoQuantidade>
+                                                {item.quantidade}
+                                                
+                                                <BotaoQuantidade onClick={() => handleQuantidade(lojaIndex, itemIndex, "+")}>
+                                                <Plus size={16} strokeWidth={3} />
+                                                </BotaoQuantidade>
 
-                        <FooterLink>Site Institucional</FooterLink>
-                        <FooterLink>Fale Conosco</FooterLink>
-                        <FooterLink>Conta e Segurança</FooterLink>
-                        <FooterLink>Carreiras</FooterLink>
-                        <FooterLink>Entregadores</FooterLink>
+                                            </QuantidadeContainer>
 
-                    </Coluna>
+                                            <IconeLixeira onClick={() => handleDeletarItem(lojaIndex, itemIndex)}><Trash2 / ></IconeLixeira>
+                                            
+                                            <IconeFavorito onClick={handleFavoritar}><Heart / ></IconeFavorito>
+                                        </ItemControles>
+                                </Item>
+                            ))}
+                        </Loja>
+                    ))}
+                    </Produtos>
+                </main> 
 
-                    <Coluna>
-                        <TitleFooter>Descubra</TitleFooter>
+                <Footer>
+                    <ConteudoFooter>
+                        <Coluna>
+                            <TitleFooter>BeYou</TitleFooter>
 
-                        <FooterLink>Cadastre sua loja</FooterLink>
-                        <FooterLink>Beyou Shop</FooterLink>
-                        <FooterLink>BeYou Empresas</FooterLink>
-                        <FooterLink>Blog BeYou Empresas</FooterLink>
-                    </Coluna>
-                    
-                    <Coluna>
-                        <TitleFooter>Social</TitleFooter>
-                        <SocialIcons>
-                            <FooterLink><FaFacebookF/></FooterLink>
-                            <FooterLink><FaTwitter/></FooterLink>
-                            <FooterLink><FaYoutube/></FooterLink>
-                            <FooterLink><FaInstagram/></FooterLink>
-                        </SocialIcons>
-                    </Coluna>
-                    
-                    <Direitos>
+                            <FooterLink>Site Institucional</FooterLink>
+                            <FooterLink>Fale Conosco</FooterLink>
+                            <FooterLink>Conta e Segurança</FooterLink>
+                            <FooterLink>Carreiras</FooterLink>
+                            <FooterLink>Entregadores</FooterLink>
 
-                        <Logo src="/img/new_logo.jpg" alt="BeYou Logo" />
+                        </Coluna>
+
+                        <Coluna>
+                            <TitleFooter>Descubra</TitleFooter>
+
+                            <FooterLink>Cadastre sua loja</FooterLink>
+                            <FooterLink>Beyou Shop</FooterLink>
+                            <FooterLink>BeYou Empresas</FooterLink>
+                            <FooterLink>Blog BeYou Empresas</FooterLink>
+                        </Coluna>
                         
-                        <Texto>© Copyright 2025 - BeYou. Todos os direitos reservados.</Texto>
-
-                        <br></br>
+                        <Coluna>
+                            <TitleFooter>Social</TitleFooter>
+                            <SocialIcons>
+                                <FooterLink><FaFacebookF/></FooterLink>
+                                <FooterLink><FaTwitter/></FooterLink>
+                                <FooterLink><FaYoutube/></FooterLink>
+                                <FooterLink><FaInstagram/></FooterLink>
+                            </SocialIcons>
+                        </Coluna>
                         
-                        <Texto>CNPJ 00.000.000/0000-00 / Endereço fictício - Cidade/Estado - CEP 00000-000</Texto>
+                        <Direitos>
 
-                    </Direitos>
+                            <Logo src="/img/new_logo.jpg" alt="BeYou Logo" />
+                            
+                            <Texto>© Copyright 2025 - BeYou. Todos os direitos reservados.</Texto>
 
-                    <Links>
-                        <FooterLink>Termos e Condições de Uso</FooterLink> | <FooterLink>Codigo de Conduta</FooterLink> | <FooterLink>Privacidade</FooterLink> | <FooterLink>Dicas de Segurança</FooterLink>
-                    </Links>
+                            <br></br>
+                            
+                            <Texto>CNPJ 00.000.000/0000-00 / Endereço fictício - Cidade/Estado - CEP 00000-000</Texto>
 
-                </ConteudoFooter>
+                        </Direitos>
 
-            </Footer>
+                        <Links>
+                            <FooterLink>Termos e Condições de Uso</FooterLink> | <FooterLink>Codigo de Conduta</FooterLink> | <FooterLink>Privacidade</FooterLink> | <FooterLink>Dicas de Segurança</FooterLink>
+                        </Links>
+
+                    </ConteudoFooter>
+
+                </Footer>
 
         </Background>
     );
