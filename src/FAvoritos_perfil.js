@@ -34,7 +34,7 @@ import {
     BotaoCard,
     IlustracaoVazio,
     BotaoLimparTudo,
-    
+
     Footer,
     ConteudoFooter,
     Coluna,
@@ -49,11 +49,9 @@ import {
 } from "./components/favoritosestilos";
 
 function FAvoritosPerfil() {
-  const [menuVisible, setMenuVisible] = useState(false);
-  const [busca, setBusca] = useState("");
   const handleLogout = () => {
           navigate("/bemvindo"); 
-        };
+  };
     
   // linkar paginas
   const navigate = useNavigate(); 
@@ -63,14 +61,16 @@ function FAvoritosPerfil() {
       event.preventDefault();
       navigate('/PaginaInicial');
   };
+  const [busca, setBusca] = useState("");
+  const [filtroSelecionado, setFiltroSelecionado] = useState("todos");
 
-  const favoritos = [
+  const [favoritos, setFavoritos] = useState([
     {
       id: "servico-01",
       tipo: "servico",
       nome: "Corte de Cabelo Masculino",
       categoria: "Serviço",
-      imagem: "/img/servico_corte.jpg",
+      imagem: "/img/servico_corte.jpeg",
       avaliacoes: 128,
       preco: 45.00
     },
@@ -79,7 +79,7 @@ function FAvoritosPerfil() {
       tipo: "produto",
       nome: "Shampoo Hidratante",
       categoria: "Produto de Beleza",
-      imagem: "/img/shampoo.jpg",
+      imagem: "/img/shampoo.jpeg",
       avaliacoes: 212,
       preco: 29.90
     },
@@ -88,7 +88,7 @@ function FAvoritosPerfil() {
       tipo: "profissional",
       nome: "Julia Fernandes",
       categoria: "Cabeleireira",
-      imagem: "/img/julia_fernandes.jpg",
+      imagem: "/img/julia_fernandes.jpeg",
       avaliacoes: 342
     },
     {
@@ -96,7 +96,7 @@ function FAvoritosPerfil() {
       tipo: "servico",
       nome: "Design de Sobrancelhas",
       categoria: "Serviço",
-      imagem: "/img/sobrancelhas.jpg",
+      imagem: "/img/sobrancelhas.jpeg",
       avaliacoes: 87,
       preco: 30.00
     },
@@ -105,38 +105,53 @@ function FAvoritosPerfil() {
       tipo: "produto",
       nome: "Creme Pós-Barba Refrescante",
       categoria: "Produto Masculino",
-      imagem: "/img/creme_barba.jpg",
+      imagem: "/img/creme_barba.jpeg",
       avaliacoes: 90,
       preco: 19.90
     },
     {
       id: "profissional-02",
       tipo: "profissional",
-      nome: "Carlos Oliveira",
+      nome: "Beto Oliveira",
       categoria: "Barbeiro",
-      imagem: "/img/carlos_oliveira.jpg",
+      imagem: "/img/carlos_oliveira.jpeg",
       avaliacoes: 120
     }
-  ];
-  
+  ]);
+
+  const removerFavorito = (id) => {
+    setFavoritos((prev) => prev.filter((item) => item.id !== id));
+  };
+
+  const limparFavoritos = () => {
+    setFavoritos([]);
+  };
+
+  // Filtrar os favoritos com base no texto de busca e filtro selecionado
+  const favoritosFiltrados = favoritos
+    .filter(item =>
+      item.nome.toLowerCase().includes(busca.toLowerCase()) &&
+      (filtroSelecionado === "todos" || item.tipo === filtroSelecionado)
+    );
+
   return (
     <Background>
       <GlobalStyle />
         <Header>
           <LogoContainer>
-            <ImgLogo onClick={reloadPage} src="/img/new_logo.jpg" alt="Logo" />
+              <ImgLogo onClick={reloadPage} src="/img/new_logo.jpg" alt="Logo" />
           </LogoContainer>
 
           <Menu>
-            <MenuLink onClick={() => navigate("/PaginaInicial")}>Inicio</MenuLink>
+              <MenuLink onClick={() => navigate("/PaginaInicial")}>Inicio</MenuLink>
 
-            <MenuLink onClick={() => navigate("/Carrinho")}>Meu Carrinho</MenuLink>
+              <MenuLink onClick={() => navigate("/Carrinho")}>Meu Carrinho</MenuLink>
 
-            <MenuLink onClick={() => navigate("/Pesquisar")}>Pesquisar</MenuLink>
+              <MenuLink onClick={() => navigate("/Pesquisar")}>Pesquisar</MenuLink>
 
-            <MenuLink onClick={() => navigate("/Agendamentos")}>Agendamentos</MenuLink>
+              <MenuLink onClick={() => navigate("/Agendamentos")}>Agendamentos</MenuLink>
 
-            <MenuLink onClick={() => navigate("/FAvoritos_perfil")}>Favoritos</MenuLink>
+              <MenuLink onClick={() => navigate("/FAvoritos_perfil")}>Favoritos</MenuLink>
 
           </Menu>
           
@@ -145,19 +160,19 @@ function FAvoritosPerfil() {
           <Icons>
               <Perfil>
                   <PerfilLink onClick={() => navigate("/MeuPerfil")}>
-                    <User className="icone" />
+                      <User className="icone" />
                   </PerfilLink>
               </Perfil>
-
+      
               <Noticacao>
                   <NoticacaoLink onClick={() => navigate("/notificacoes_perfil")}>
-                    <Bell className="icone" />
+                      <Bell className="icone" />
                   </NoticacaoLink>
               </Noticacao>
-
+      
               <Sair>
                   <BotaoSair onClick={handleLogout}>
-                    <LogOut className="icone" />
+                      <LogOut className="icone" />
                   </BotaoSair>
               </Sair>
           </Icons>
@@ -174,31 +189,42 @@ function FAvoritosPerfil() {
             onChange={(e) => setBusca(e.target.value)}
           />
 
-          <BotaoLimparTudo onClick={() => {/* lógica para limpar favoritos */}}>
+          <BotaoLimparTudo onClick={limparFavoritos}>
             Limpar Tudo
           </BotaoLimparTudo>
 
           <FiltrosContainer>
-            <BotaoFiltro>Serviços</BotaoFiltro>
-            <BotaoFiltro>Profissionais</BotaoFiltro>
-            <BotaoFiltro>Produtos</BotaoFiltro>
+            <BotaoFiltro onClick={() => setFiltroSelecionado("servico")}>
+              Serviços
+            </BotaoFiltro>
+            <BotaoFiltro onClick={() => setFiltroSelecionado("profissional")}>
+              Profissionais
+            </BotaoFiltro>
+            <BotaoFiltro onClick={() => setFiltroSelecionado("produto")}>
+              Produtos
+            </BotaoFiltro>
+            <BotaoFiltro onClick={() => setFiltroSelecionado("todos")}>
+              Todos
+            </BotaoFiltro>
           </FiltrosContainer>
 
-          {favoritos.length === 0 ? (
+          {favoritosFiltrados.length === 0 ? (
             <IlustracaoVazio>
               <img src="/img/vazio.png" alt="Nenhum favorito" />
               <p>Você ainda não favoritou nada… Que tal explorar a loja?</p>
             </IlustracaoVazio>
           ) : (
             <CardContainer>
-              {favoritos.map((item, index) => (
-                <Card key={index}>
+              {favoritosFiltrados.map((item) => (
+                <Card key={item.id}>
                   <ImgCard src={item.imagem} alt={item.nome} />
                   <CardContent>
                     <CardTitulo>{item.nome}</CardTitulo>
                     <CardCategoria>{item.categoria}</CardCategoria>
                     <CardNota>⭐⭐⭐⭐⭐ ({item.avaliacoes})</CardNota>
-                    {item.preco && <CardPreco>R$ {item.preco}</CardPreco>}
+                    {item.preco && (
+                      <CardPreco>R$ {item.preco.toFixed(2)}</CardPreco>
+                    )}
                     <CardBotoes>
                       <BotaoCard onClick={() => navigate(`/detalhes/${item.id}`)}>
                         Ver Detalhes
@@ -208,8 +234,8 @@ function FAvoritosPerfil() {
                           Agendar
                         </BotaoCard>
                       )}
-                      <BotaoCard onClick={() => {/* lógica para remover */}}>
-                        ❤️
+                      <BotaoCard onClick={() => removerFavorito(item.id)}>
+                        Remover ❤️
                       </BotaoCard>
                     </CardBotoes>
                   </CardContent>
@@ -221,54 +247,44 @@ function FAvoritosPerfil() {
 
         <Footer>
           <ConteudoFooter>
-              <Coluna>
-                  <TitleFooter>BeYou</TitleFooter>
+            <Coluna>
+              <TitleFooter>BeYou</TitleFooter>
+              <FooterLink>Site Institucional</FooterLink>
+              <FooterLink>Fale Conosco</FooterLink>
+              <FooterLink>Conta e Segurança</FooterLink>
+              <FooterLink>Carreiras</FooterLink>
+              <FooterLink>Entregadores</FooterLink>
+            </Coluna>
 
-                  <FooterLink>Site Institucional</FooterLink>
-                  <FooterLink>Fale Conosco</FooterLink>
-                  <FooterLink>Conta e Segurança</FooterLink>
-                  <FooterLink>Carreiras</FooterLink>
-                  <FooterLink>Entregadores</FooterLink>
+            <Coluna>
+              <TitleFooter>Descubra</TitleFooter>
+              <FooterLink>Cadastre sua loja</FooterLink>
+              <FooterLink>Beyou Shop</FooterLink>
+              <FooterLink>BeYou Empresas</FooterLink>
+              <FooterLink>Blog BeYou Empresas</FooterLink>
+            </Coluna>
 
-              </Coluna>
+            <Coluna>
+              <TitleFooter>Social</TitleFooter>
+              <SocialIcons>
+                <FooterLink><FaFacebookF /></FooterLink>
+                <FooterLink><FaTwitter /></FooterLink>
+                <FooterLink><FaYoutube /></FooterLink>
+                <FooterLink><FaInstagram /></FooterLink>
+              </SocialIcons>
+            </Coluna>
 
-              <Coluna>
-                  <TitleFooter>Descubra</TitleFooter>
+            <Direitos>
+              <Logo src="/img/new_logo.jpg" alt="BeYou Logo" />
+              <Texto>© Copyright 2025 - BeYou. Todos os direitos reservados.</Texto>
+              <br />
+              <Texto>CNPJ 00.000.000/0000-00 / Endereço fictício - Cidade/Estado - CEP 00000-000</Texto>
+            </Direitos>
 
-                  <FooterLink>Cadastre sua loja</FooterLink>
-                  <FooterLink>Beyou Shop</FooterLink>
-                  <FooterLink>BeYou Empresas</FooterLink>
-                  <FooterLink>Blog BeYou Empresas</FooterLink>
-              </Coluna>
-              
-              <Coluna>
-                  <TitleFooter>Social</TitleFooter>
-                  <SocialIcons>
-                      <FooterLink><FaFacebookF/></FooterLink>
-                      <FooterLink><FaTwitter/></FooterLink>
-                      <FooterLink><FaYoutube/></FooterLink>
-                      <FooterLink><FaInstagram/></FooterLink>
-                  </SocialIcons>
-              </Coluna>
-              
-              <Direitos>
-
-                  <Logo src="/img/new_logo.jpg" alt="BeYou Logo" />
-                  
-                  <Texto>© Copyright 2025 - BeYou. Todos os direitos reservados.</Texto>
-
-                  <br></br>
-                  
-                  <Texto>CNPJ 00.000.000/0000-00 / Endereço fictício - Cidade/Estado - CEP 00000-000</Texto>
-
-              </Direitos>
-
-              <Links>
-                  <FooterLink>Termos e Condições de Uso</FooterLink> | <FooterLink>Codigo de Conduta</FooterLink> | <FooterLink>Privacidade</FooterLink> | <FooterLink>Dicas de Segurança</FooterLink>
-              </Links>
-
+            <Links>
+              <FooterLink>Termos e Condições de Uso</FooterLink> | <FooterLink>Codigo de Conduta</FooterLink> | <FooterLink>Privacidade</FooterLink> | <FooterLink>Dicas de Segurança</FooterLink>
+            </Links>
           </ConteudoFooter>
-
         </Footer>
     </Background>
   );
