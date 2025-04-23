@@ -74,19 +74,19 @@ function Carrinho() {
             nome: "Bellus Esmaltaria",
             selecionada: false,
             itens: [
-                { nome: "Esmalte em Gel - Preto", preco: 10, selecionado: false, quantidade: 1, imagem: "/img/esmalte_preto.webp" },
-                { nome: "Esmalte em Gel - Azul", preco: 10, selecionado: false, quantidade: 1, imagem: "/img/esmalte_azul.webp" },
+                { nome: "Esmalte em Gel - Preto", preco: 10, selecionado: false, quantidade: 1, favorito: false, imagem: "/img/esmalte_preto.webp" },
+                { nome: "Esmalte em Gel - Azul", preco: 10, selecionado: false, quantidade: 1, favorito: false, imagem: "/img/esmalte_azul.webp" },
             ],
         },
         {
             nome: "Marcia Travessoni",
             selecionada: false,
-            itens: [{ nome: "Creme de Pentear - Elseve", preco: 30, selecionado: false, quantidade: 1, imagem: "/img/creme_pentear.jpeg" }],
+            itens: [{ nome: "Creme de Pentear - Elseve", preco: 30, selecionado: false, quantidade: 1, favorito: false, imagem: "/img/creme_pentear.jpeg" }],
         },
         {
             nome: "Monisatti",
             selecionada: false,
-            itens: [{ nome: "Máscara Capilar - Eudora", preco: 75, selecionado: false, quantidade: 1, imagem: "/img/mascara_capilar.jpeg" }],
+            itens: [{ nome: "Máscara Capilar - Eudora", preco: 75, selecionado: false, quantidade: 1, favorito: false, imagem: "/img/mascara_capilar.jpeg" }],
         },
     ]);
 
@@ -105,10 +105,21 @@ function Carrinho() {
     const [mensagemFavorito, setMensagemFavorito] = useState("");
 
     // marca um item como favorito e exibe a mensagem por 2 segundos
-    const handleFavoritar = () => {
-        setMensagemFavorito("Adicionado aos favoritos");
+    const handleFavoritar = (lojaIndex, itemIndex) => {
+        const novasLojas = [...lojas];
+        const item = novasLojas[lojaIndex].itens[itemIndex];
+    
+        item.favorito = !item.favorito;
+        setLojas(novasLojas);
+    
+        if (item.favorito) {
+            setMensagemFavorito("Adicionado aos favoritos");
+        } else {
+            setMensagemFavorito("Removido dos favoritos");
+        }
+    
         setTimeout(() => setMensagemFavorito(""), 2000);
-    };
+    };  
 
     // selecionar ou desmarcar uma loja inteira
     const handleSelecionarLoja = (index) => {
@@ -249,7 +260,12 @@ function Carrinho() {
 
                                             <IconeLixeira onClick={() => handleDeletarItem(lojaIndex, itemIndex)}><Trash2 / ></IconeLixeira>
                                             
-                                            <IconeFavorito onClick={handleFavoritar}><Heart / ></IconeFavorito>
+                                            <IconeFavorito
+                                                onClick={() => handleFavoritar(lojaIndex, itemIndex)}
+                                                style={{ color: item.favorito ? 'hotpink' : '#6c4539' }}
+                                            >
+                                                <Heart fill={item.favorito ? 'hotpink' : 'none'} />
+                                                </IconeFavorito>
                                         </ItemControles>
                                 </Item>
                             ))}
