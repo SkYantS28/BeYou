@@ -1,0 +1,155 @@
+const BotaoCadastrar = styled.button`
+  background-color: #f45bf4;
+  color: white;
+  padding: 12px 24px;
+  border: solid 2px #6c4539;
+  cursor: pointer;
+  width: 50%;
+  opacity: 0.8;
+  font-size: 1rem;
+  margin-top: 30px;
+  border-radius: 30px; 
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  font-family: 'Poppins', sans-serif;
+
+  &:hover {
+    opacity: 1;
+    background-color: hsl(300, 99%, 64%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+`;
+
+color: hsl(321, 100.00%, 58.00%);
+
+
+const SearchBar = styled.input`
+    width: 30%;
+    padding: 12px 18px;
+    border: 2px solid hsl(300, 99%, 64%);
+    border-radius: 20px;
+    font-size: 16px;
+    color: #6c4539;
+    outline: none;
+ 
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+
+    &::placeholder {
+        color: #6c4539;
+        font-style: italic;
+    }
+
+    &:focus {
+      border: 2px solid hsl(300, 99%, 64%);
+    }
+
+    &:hover {
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+`;
+
+
+  function ConfiguracaoNotificacao() {
+    const [visivel, setVisivel] = useState(false);
+    const [notificacoesAtivas, setNotificacoesAtivas] = useState(true);
+    const [tipoNotificacao, setTipoNotificacao] = useState({ email: false, push: true, sistema: true });
+    const [frequencia, setFrequencia] = useState('imediato');
+    const [notificacoesEspecificas, setNotificacoesEspecificas] = useState({
+        mensagens: false,
+        atualizacoes: false,
+        promocoes: false,
+        lembretes: false
+    });
+    const [horario, setHorario] = useState("08:00 - 22:00");
+    const [modoNaoPerturbe, setModoNaoPerturbe] = useState(false);
+    const [somVibracao, setSomVibracao] = useState("som");
+
+    
+    return (
+        <Opcoes onClick={() => setVisivel(!visivel)}>
+            <TituloOpcoes>Configurações de Notificações</TituloOpcoes>
+            {visivel && (
+                <Descricao visivel={visivel} onClick={(e) => e.stopPropagation()}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                        <label>
+                            <input
+                                type="checkbox"
+                                checked={notificacoesAtivas}
+                                onChange={() => setNotificacoesAtivas(!notificacoesAtivas)}
+                            /> Ativar/Desativar Notificações Gerais
+                        </label>
+
+                        <b>Escolha o Tipo de Notificação:</b>
+                        <div style={{ display: 'flex', gap: '10px' }}>
+                            <label>
+                                <input type="checkbox" checked={tipoNotificacao.email} onChange={() => setTipoNotificacao({...tipoNotificacao, email: !tipoNotificacao.email})} /> 📩 E-mail
+                            </label>
+                            <label>
+                                <input type="checkbox" checked={tipoNotificacao.push} onChange={() => setTipoNotificacao({...tipoNotificacao, push: !tipoNotificacao.push})} /> 📱 Push (app ou celular)
+                            </label>
+                            <label>
+                                <input type="checkbox" checked={tipoNotificacao.sistema} onChange={() => setTipoNotificacao({...tipoNotificacao, sistema: !tipoNotificacao.sistema})} /> 🔔 No próprio sistema
+                            </label>
+                        </div>
+
+                        <b>Frequência das Notificações:</b>
+                        <div>
+                            <label><input type="radio" name="frequencia" value="imediato" checked={frequencia === 'imediato'} onChange={() => setFrequencia('imediato')} /> Imediatamente</label>
+                            <label><input type="radio" name="frequencia" value="diario" checked={frequencia === 'diario'} onChange={() => setFrequencia('diario')} /> Diariamente</label>
+                            <label><input type="radio" name="frequencia" value="semanal" checked={frequencia === 'semanal'} onChange={() => setFrequencia('semanal')} /> Semanalmente</label>
+                        </div>
+
+                        <b>Notificações Específicas:</b>
+                        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                            {Object.keys(notificacoesEspecificas).map((key) => (
+                                <label key={key}>
+                                    <input
+                                        type="checkbox"
+                                        checked={notificacoesEspecificas[key]}
+                                        onChange={() => setNotificacoesEspecificas({ ...notificacoesEspecificas, [key]: !notificacoesEspecificas[key] })}
+                                    /> {key.charAt(0).toUpperCase() + key.slice(1)}
+                                </label>
+                            ))}
+                        </div>
+
+                        <b>Horário para Receber Notificações:</b>
+                        <div>
+                            <input
+                                type="text"
+                                value={horario}
+                                onChange={(e) => setHorario(e.target.value)}
+                                style={{ width: '100px' }}
+                            />
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    checked={modoNaoPerturbe}
+                                    onChange={() => setModoNaoPerturbe(!modoNaoPerturbe)}
+                                /> Ativar Modo Não Perturbe
+                            </label>
+                        </div>
+
+                        <b>Notificação por Som ou Vibração:</b>
+                        <div>
+                            <label><input type="radio" name="somVibracao" value="som" checked={somVibracao === 'som'} onChange={() => setSomVibracao('som')} /> Som</label>
+                            <label><input type="radio" name="somVibracao" value="vibracao" checked={somVibracao === 'vibracao'} onChange={() => setSomVibracao('vibracao')} /> Vibração</label>
+                            <label><input type="radio" name="somVibracao" value="silencioso" checked={somVibracao === 'silencioso'} onChange={() => setSomVibracao('silencioso')} /> Silencioso</label>
+                        </div>
+                    </div>
+                </Descricao>
+            )}
+        </Opcoes>
+    );
+}
