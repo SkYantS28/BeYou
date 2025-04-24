@@ -580,5 +580,3 @@ export {
   Texto,
   GlobalStyle
 }; 
-
-
