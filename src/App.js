@@ -13,6 +13,7 @@ import NotificacoesPerfil from './notificacoes_perfil';
 import Inicial from "./PaginaInicial"; 
 import SearchPage from './Pesquisar';
 import DadosPerfil from './DadosPerfil';
+import Agendamento from './Agendamentos';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
       <Route path="/bemvindo" element={<BemVindo />} />
       <Route path="/Pesquisar" element={<SearchPage />} />
       <Route path="/dadosperfil" element={<DadosPerfil />} />
+      <Route path="/Agendamentos" element={<Agendamento />} />
     </Routes>
   );
 }

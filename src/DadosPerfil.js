@@ -34,6 +34,7 @@ import {
   Texto,
   Titulo,
   Opcoes,
+  TituloOpcoes,
   Descricao,
   MeusDados,
   DadosContainer

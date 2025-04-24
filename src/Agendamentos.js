@@ -184,4 +184,4 @@ function Agendamento() {
     );
 }
 
-export default Agendamento();
+export default Agendamento;
