@@ -291,7 +291,7 @@ const Opcoes = styled.div`
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.38);
   opacity: 90%;
-  border-radius: 12px;
+  border-radius: 20px;
   border: 1px solid #6c4539;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
